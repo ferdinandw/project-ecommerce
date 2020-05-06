@@ -52,7 +52,7 @@ module.exports = {
       });
   },
   authenticated: function (req, res, next) {
-    Users.findOne({
+    User.findOne({
       email: req.body.email,
     })
       .then((responese, err) => {
@@ -62,15 +62,13 @@ module.exports = {
             responese != null &&
             Bcrypt.compareSync(req.body.password, responese.password)
           ) {
-            jwt.sign(
+            const token = jwt.sign(
               {
                 id: responese._id,
               },
               privateKey,
               { expiresIn: 60 * 60 },
-              (err, token) => {
-                res.json(token);
-              }
+                res.json(token)
             );
           } else {
             res.json({ status: err });
