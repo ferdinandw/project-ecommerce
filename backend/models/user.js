@@ -1,5 +1,7 @@
 const Sequelize = require("sequelize");
+
 const env = process.env.NODE_ENV || "development";
+const bcrypt = require("bcrypt");
 const config = (require = require(__dirname + "/../config/config.json")[[env]]);
 const sequelize = new Sequelize(
   config.database,
@@ -25,4 +27,5 @@ const User = sequelize.define(
   },
   { freezeTableName: true, timestamps: false }
 );
+
 module.exports = User;
