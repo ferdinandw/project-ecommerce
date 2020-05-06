@@ -1,19 +1,29 @@
 const User = require("../models/user");
-const Bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const privateKey = "sdhskdnk";
+const saltRounds = 10;
 
 module.exports = {
   createData: (req, res) => {
-    User.create({
+    const newUser = new User({
       email: req.body.email,
       phone: req.body.phone,
       password: req.body.password,
-    })
-      .then((result) => res.json(result))
-      .catch((err) => {
-        throw err;
+    });
+
+    bcrypt.genSalt(saltRounds, function (err, salt) {
+      bcrypt.hash(newUser.password, salt, function (err, hash) {
+        if (err) throw err;
+        newUser.password = hash;
+        newUser
+          .save()
+          .then((result) => res.json(result))
+          .catch((err) => {
+            throw err;
+          });
       });
+    });
   },
   getData: (req, res) => {
     User.findAll()
@@ -39,10 +49,9 @@ module.exports = {
   updateDataById: (req, res) => {
     User.update(
       {
-        name: req.body.name,
-        price: req.body.price,
-        description: req.body.description,
-        image: req.body.image,
+        email: req.body.email,
+        phone: req.body.phone,
+        password: req.body.password,
       },
       { where: { id: req.params.userId } }
     )
@@ -55,20 +64,24 @@ module.exports = {
     User.findOne({
       email: req.body.email,
     })
-      .then((responese, err) => {
+      .then((response, err) => {
+        console.log(response);
+
         if (err) next(err);
         else {
           if (
-            responese != null &&
-            Bcrypt.compareSync(req.body.password, responese.password)
+            response != null &&
+            bcrypt.compareSync(req.body.password, response.password)
           ) {
-            const token = jwt.sign(
+            jwt.sign(
               {
-                id: responese._id,
+                id: response.id,
               },
               privateKey,
-              { expiresIn: 60 * 60 },
-                res.json(token)
+              { expiresIn: 360 },
+              function (err, token) {
+                res.json(token);
+              }
             );
           } else {
             res.json({ status: err });
