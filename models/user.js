@@ -7,18 +7,22 @@ const sequelize = new Sequelize(
   config.password,
   config
 );
-const User = sequelize.define("user", {
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false,
+const User = sequelize.define(
+  "user",
+  {
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    phone: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+    },
+    password: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
   },
-  phone: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-});
+  { freezeTableName: true, timestamps: false }
+);
 module.exports = User;
