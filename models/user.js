@@ -28,4 +28,18 @@ const User = sequelize.define(
   { freezeTableName: true, timestamps: false }
 );
 
+const User = sequelize.define("user", {
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  phone: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+});
 module.exports = User;

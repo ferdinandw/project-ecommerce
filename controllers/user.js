@@ -67,7 +67,7 @@ module.exports = {
                 id: responese._id,
               },
               privateKey,
-              { expiresIn: 360 },
+              { expiresIn: 60 * 60 },
               (err, token) => {
                 res.json(token);
               }
