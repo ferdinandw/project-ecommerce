@@ -27,8 +27,5 @@ const User = sequelize.define(
   },
   { freezeTableName: true, timestamps: false }
 );
-User.pre("save", function (next) {
-  this.password = Bcrypt.hashSync(this.password, saltRounds);
-  next();
-});
+
 module.exports = User;
