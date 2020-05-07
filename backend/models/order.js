@@ -1,20 +1,28 @@
-const sequelize = require("sequelize");
+const Sequelize = require("sequelize");
+const env = process.env.NODE_ENV || "development";
+const config = (require = require(__dirname + "/../config/config.json")[[env]]);
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config
+);
 
 const order = sequelize.define("order", {
   name: {
-    type: sequelize.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   orderDate: {
-    type: sequelize.DATE,
+    type: Sequelize.DATE,
     allowNull: false,
   },
   total: {
-    type: sequelize.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
   status: {
-    type: sequelize.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
     enum: ["confirmed", "packed", "out for delivery", "delivered"], //only values in this field are allowed to send.
   },
