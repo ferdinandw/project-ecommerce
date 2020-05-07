@@ -7,26 +7,24 @@ const sequelize = new Sequelize(
   config.password,
   config
 );
-const item = sequelize.define("item", {
+
+const order = sequelize.define("order", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  price: {
+  orderDate: {
+    type: Sequelize.DATE,
+    allowNull: false,
+  },
+  total: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  description: {
+  status: {
     type: Sequelize.STRING,
     allowNull: false,
-  },
-  category: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  image: {
-    type: Sequelize.STRING,
-    allowNull: false,
+    enum: ["confirmed", "packed", "out for delivery", "delivered"], //only values in this field are allowed to send.
   },
 });
-module.exports = item;
+module.exports = order;
