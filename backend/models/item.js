@@ -20,11 +20,11 @@ const item = sequelize.define("item", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  image: {
+  category: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  category: {
+  image: {
     type: Sequelize.STRING,
     allowNull: false,
   },

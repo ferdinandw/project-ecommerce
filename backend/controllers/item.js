@@ -6,8 +6,8 @@ module.exports = {
       name: req.body.name,
       price: req.body.price,
       description: req.body.description,
-      image: req.file && req.file.path,
       category: req.body.category,
+      image: req.file && req.file.path,
     })
       .then((result) => res.json(result))
       .catch((err) => {
@@ -41,8 +41,8 @@ module.exports = {
         name: req.body.name,
         price: req.body.price,
         description: req.body.description,
-        image: req.file && req.file.path,
         category: req.body.category,
+        image: req.file && req.file.path,
       },
       { where: { id: req.params.menuId } }
     )
