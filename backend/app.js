@@ -11,6 +11,7 @@ const privateKey = "sdhskdnk";
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var itemRouter = require("./routes/Item");
+const orderRouter = require("./routes/order");
 var userRouter = require("./routes/User");
 
 var app = express();
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/item", validateUser, itemRouter);
+app.use("/order", orderRouter);
 app.use("/user", userRouter);
 
 function validateUser(req, res, next) {
