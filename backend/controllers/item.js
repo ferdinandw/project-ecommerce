@@ -1,6 +1,7 @@
 const ItemSchema = require("../models/item");
 
 module.exports = {
+  //create data item.
   createData: (req, res) => {
     ItemSchema.create({
       name: req.body.name,
