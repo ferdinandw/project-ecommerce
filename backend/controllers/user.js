@@ -5,13 +5,14 @@ const privateKey = "sdhskdnk";
 const saltRounds = 10;
 
 module.exports = {
+  //user create data.
   createData: (req, res) => {
     const newUser = new User({
       email: req.body.email,
       phone: req.body.phone,
       password: req.body.password,
     });
-
+    // hash password.
     bcrypt.genSalt(saltRounds, function (err, salt) {
       bcrypt.hash(newUser.password, salt, function (err, hash) {
         if (err) throw err;
@@ -25,6 +26,7 @@ module.exports = {
       });
     });
   },
+  //get all data user.
   getData: (req, res) => {
     User.findAll()
       .then((result) => res.json(result))
@@ -32,6 +34,7 @@ module.exports = {
         throw err;
       });
   },
+  //get user by id.
   getDataById: (req, res) => {
     User.findOne({ where: { id: req.params.userId } })
       .then((result) => res.json(result))
@@ -39,6 +42,7 @@ module.exports = {
         throw err;
       });
   },
+  // delete user data by id.
   deleteDataById: (req, res) => {
     User.destroy({ where: { id: req.params.userId } })
       .then((result) => res.json(result))
