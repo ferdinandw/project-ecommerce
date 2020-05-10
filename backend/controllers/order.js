@@ -22,11 +22,11 @@ module.exports = {
         throw err;
       });
   },
-  authenticateUser: function (req, res, next) {
-    let user = req.locals.user;
-    orderSchema
-      .findAll({ user: user._id })
-      .then((result) => res.send(result))
-      .catch((err) => res.send(err));
+  deleteDataById: (req, res) => {
+    Order.destroy({ where: { id: req.params.orderId } })
+      .then((result) => res.json(result))
+      .catch((err) => {
+        throw err;
+      });
   },
 };
