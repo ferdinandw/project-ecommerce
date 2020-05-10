@@ -8,6 +8,7 @@ module.exports = {
       price: req.body.price,
       description: req.body.description,
       imageUrl: req.file && req.file.path,
+      quantity: req.body.quantity,
       categoryId: req.body.categoryId,
     })
       .then((result) => res.json(result))
@@ -45,6 +46,7 @@ module.exports = {
         price: req.body.price,
         description: req.body.description,
         imageUrl: req.body.imageUrl,
+        quantity: req.body.quantity,
         categoryId: req.body.categoryId,
       },
       { where: { id: req.params.itemId } }

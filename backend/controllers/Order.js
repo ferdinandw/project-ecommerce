@@ -8,22 +8,14 @@ module.exports = {
     Order.create({
       total: req.body.total,
       status: req.body.status,
-      userId: req.body.userId,
-      categoryId: req.body.categoryId,
+      // userId: req.body.userId,
+      // categoryId: req.body.categoryId,
     })
       .then((result) => res.json(result))
       .catch((err) => res.json(err));
   },
   showAll: (req, res) => {
     Order.findAll({
-      include: [
-        // show joining table with include configure
-        {
-          models: User,
-          as: "user",
-          include: [{ models: Category, as: "category" }],
-        },
-      ],
     })
       .then((result) => res.json(result))
       .catch((err) => res.json(err));

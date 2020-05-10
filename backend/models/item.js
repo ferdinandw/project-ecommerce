@@ -1,32 +1,23 @@
-const Sequelize = require("sequelize");
-const env = process.env.NODE_ENV || "development";
-const config = (require = require(__dirname + "/../config/config.json")[[env]]);
-const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config
-);
-const item = sequelize.define("item", {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  price: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  description: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  category: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  image: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-});
-module.exports = item;
+"use strict";
+module.exports = (sequelize, DataTypes) => {
+  const Item = sequelize.define(
+    "Item",
+    {
+      name: DataTypes.STRING,
+      price: DataTypes.INTEGER,
+      description: DataTypes.STRING,
+      quantity: DataTypes.INTEGER,
+      imageUrl: DataTypes.STRING,
+      categoryId: DataTypes.INTEGER,
+    },
+    {}
+  );
+  Item.associate = function (models) {
+    // associations can be defined here
+    Item.belongsTo(models.Category, {
+      foreignKey: "categoryId",
+      as: "category",
+    });
+  };
+  return Item;
+};
