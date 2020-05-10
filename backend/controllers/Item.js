@@ -1,14 +1,15 @@
-const ItemSchema = require("../models/item");
+const Models = require("../models");
+const Item = Models.Item;
 
 module.exports = {
-  //create data item.
-  createData: (req, res) => {
-    ItemSchema.create({
+  create: (req, res) => {
+    Item.create({
       name: req.body.name,
       price: req.body.price,
       description: req.body.description,
-      category: req.body.category,
-      image: req.file && req.file.path,
+      imageUrl: req.file && req.file.path,
+      quantity: req.body.quantity,
+      categoryId: req.body.categoryId,
     })
       .then((result) => res.json(result))
       .catch((err) => {
@@ -16,36 +17,39 @@ module.exports = {
       });
   },
   getAllData: (req, res) => {
-    ItemSchema.findAll()
+    Item.findAll({ include: "category" })
       .then((result) => res.json(result))
       .catch((err) => {
         throw err;
       });
   },
+  //get user by id.
   getDataById: (req, res) => {
-    ItemSchema.findById({ where: { id: req.params.itemId } }).then((result) =>
-      res.json(result).catch((err) => {
+    Item.findOne({ where: { id: req.params.itemId } })
+      .then((result) => res.json(result))
+      .catch((err) => {
         throw err;
-      })
-    );
+      });
   },
+  //delete user data by id.
   deleteDataById: (req, res) => {
-    ItemSchema.destroy({ where: { id: req.params.itemId } })
+    Item.destroy({ where: { id: req.params.itemId } })
       .then((result) => res.json(result))
       .catch((err) => {
         throw err;
       });
   },
   updateDataById: (req, res) => {
-    ItemSchema.update(
+    Item.update(
       {
         name: req.body.name,
         price: req.body.price,
         description: req.body.description,
-        category: req.body.category,
-        image: req.file && req.file.path,
+        imageUrl: req.body.imageUrl,
+        quantity: req.body.quantity,
+        categoryId: req.body.categoryId,
       },
-      { where: { id: req.params.menuId } }
+      { where: { id: req.params.itemId } }
     )
       .then((result) => res.json(result))
       .catch((err) => {

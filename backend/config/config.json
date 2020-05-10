@@ -2,10 +2,10 @@
   "development": {
     "username": "root",
     "password": "Hallo123$",
-    "database": "ecommerce",
+    "database": "test",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "operatorsAliases": "false"
   },
   "test": {
     "username": "root",
@@ -21,7 +21,6 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": false,
-    "use_env_variable": "DATABASE_URL"
+    "operatorsAliases": false
   }
 }
