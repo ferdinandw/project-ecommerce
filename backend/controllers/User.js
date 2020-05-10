@@ -1,18 +1,19 @@
-const User = require("../models/user");
+const Models = require("../models");
+const User = Models.User;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const privateKey = "sdhskdnk";
+const privateKey = "null";
 const saltRounds = 10;
 
 module.exports = {
-  //user create data.
-  createData: (req, res) => {
+  // user register.
+  create: (req, res) => {
     const newUser = new User({
       email: req.body.email,
       phone: req.body.phone,
       password: req.body.password,
     });
-    // hash password.
+    //hash password.
     bcrypt.genSalt(saltRounds, function (err, salt) {
       bcrypt.hash(newUser.password, salt, function (err, hash) {
         if (err) throw err;
@@ -26,13 +27,11 @@ module.exports = {
       });
     });
   },
-  //get all data user.
+  // get all user data.
   getData: (req, res) => {
-    User.findAll()
+    User.findAll({})
       .then((result) => res.json(result))
-      .catch((err) => {
-        throw err;
-      });
+      .catch((err) => res.json(err));
   },
   //get user by id.
   getDataById: (req, res) => {
@@ -42,7 +41,7 @@ module.exports = {
         throw err;
       });
   },
-  // delete user data by id.
+  //delete user data by id.
   deleteDataById: (req, res) => {
     User.destroy({ where: { id: req.params.userId } })
       .then((result) => res.json(result))
@@ -82,7 +81,7 @@ module.exports = {
                 id: response.id,
               },
               privateKey,
-              { expiresIn: 360 },
+              { expiresIn: "365d" },
               function (err, token) {
                 res.json(token);
               }
