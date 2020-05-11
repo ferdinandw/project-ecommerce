@@ -13,10 +13,11 @@ code {
 }
 
 .container {
-  width: 25%;
+  /* width: 25%; */
   height: 100px;
   margin: 5%;
 }
+
 
 .slick-slide {
   height: 25%;
@@ -52,4 +53,24 @@ code {
 
 .text-center {
   margin: auto;
+}
+
+.row{
+  margin: 0;
+  padding: 0;
+}
+
+.col{
+  height: 600px;
+}
+.album .card{
+  width: 18rem;
+}
+/* .size img{
+  height: 250px;
+  margin-bottom: 5%;
+  width: 100%;
+} */
+.test {
+  height: 400px;
 }
