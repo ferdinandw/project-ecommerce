@@ -7,6 +7,7 @@ import Navbar from './components/navbar/Navbar1'
 import Navbar0 from './components/navbar/Navbar0'
 
 import Carousel from './components/Carousel';
+import Description from './components/Description'
 import Footer from './components/Footer';
 
 
@@ -20,8 +21,14 @@ class App extends Component{
     <Router>
       <Navbar0/>
       <Navbar/>
-
-      <Carousel/>
+        <Switch>
+          <Route path="/new">
+            <Description/>
+          </Route>
+          <Route path="/">
+            <Carousel/>
+          </Route>
+        </Switch>
       <Footer/>
     </Router>
 
