@@ -20,7 +20,7 @@ const Home = () => {
     //     )
     // });
     return(
-            <div className="container-fluid">
+            <div className="container-fluid content">
             <h4 className="pb-5">Item List</h4>
                 <div className="row">
                     {/* {itemList} */}

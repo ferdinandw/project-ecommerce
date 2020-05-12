@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {FaShoppingCart} from "react-icons/fa";
+import {FaShoppingCart, FaDollarSign} from "react-icons/fa";
 
 const Navbar2 = () => {
     return(
@@ -13,6 +13,9 @@ const Navbar2 = () => {
             <div>
                 <button className="mr-4">
                     <Link to="/cart"><FaShoppingCart/></Link>
+                </button>
+                <button className="mr-4">
+                    <Link to="/seller"><FaDollarSign/></Link>
                 </button>
                 <button className="btn btn-outline-dark">
                     <Link to="/login">Login</Link>
