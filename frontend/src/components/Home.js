@@ -28,7 +28,7 @@ const Home = () => {
                         <div class="card mb-4">
                             <img src={require("./img/1.png")} class="card-img-top" alt="..."/>
                             <div class="card-body">
-                                <h4 className="card-title">Teman Gak Guna</h4>
+                                <h4 className="card-title">Ferdinand</h4>
                                 <h5 className="card-subtitle mb-2">Rp 20.000</h5>
                                 <h6 className="card-subtitle mb-2">Stock : Banyak</h6>
                                 <p class="card-text">Di jual teman gak guna karena tidak berguna</p>

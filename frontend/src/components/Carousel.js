@@ -27,12 +27,12 @@ export default class Carousel extends Component {
           <img
             src={require("./img/2.png")}
             alt="Gambar"
-            style={{ height: "40%", width: "100%", marginBottom: "5%" }}
+            style={{ height: "35%", width: "100%", marginBottom: "5%" }}
           />
           <img
             src={require("./img/3.png")}
             alt="Gambar"
-            style={{ height: "40%", width: "100%", marginBottom: "5%" }}
+            style={{ height: "34%", width: "100%", marginBottom: "5%" }}
           />
         </div>
       </div>
