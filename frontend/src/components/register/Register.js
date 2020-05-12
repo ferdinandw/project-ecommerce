@@ -7,7 +7,7 @@ const Register = () => {
             <div className="container-fluid">
                 <div className="row test">
                 <div className="col-md-6">
-                <img src={require("./img/mandiri.png")} alt="Gambar 1" />
+                <img src={require("../img/mandiri.png")} alt="Gambar 1" />
                 </div>
                 <div className="col-md-6">
                     <form className="mb-4">
