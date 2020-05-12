@@ -11,10 +11,7 @@ const Penjualan = () => {
                 </div>
                 <div class="form-group">
                     <label for="password">Item Price</label>
-                    <span>
-                        Rp 
                         <input type="number" class="form-control" id="price" placeholder=""/>
-                    </span>
                 </div>
                 <div class="form-group">
                     <label for="email">Category</label>
