@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../index.css";
+import "./CarouselAndFooter.css";
 
 export default class Carousel extends Component {
   render() {
@@ -15,22 +15,22 @@ export default class Carousel extends Component {
     };
     return (
       <div>
-      <div className="row mx-2">
+      <div className="row mx-2 mt-4">
         <div className="col col-md-6 col-sm-12">
           <Slider {...settings}>
-            <img src={require("./img/1.png")} alt="Gambar 1" />
-            <img src={require("./img/2.png")} alt="Gambar 2" />
-            <img src={require("./img/3.png")} alt="Gambar 3" />
+            <img src={require("../img/1.png")} alt="Gambar 1" />
+            <img src={require("../img/2.png")} alt="Gambar 2" />
+            <img src={require("../img/3.png")} alt="Gambar 3" />
           </Slider>
         </div>
         <div className="col col-md-6 col-sm-12 d-flex flex-column size">
           <img
-            src={require("./img/2.png")}
+            src={require("../img/2.png")}
             alt="Gambar"
             style={{ height: "40%", width: "100%", marginBottom: "5%" }}
           />
           <img
-            src={require("./img/3.png")}
+            src={require("../img/3.png")}
             alt="Gambar"
             style={{ height: "40%", width: "100%", marginBottom: "5%" }}
           />

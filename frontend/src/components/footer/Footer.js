@@ -6,7 +6,7 @@ import {
   FaLine,
   FaYoutube,
 } from "react-icons/fa";
-import "../index.css";
+import "./footer.css";
 export default class Footer extends Component {
   render() {
     return (
@@ -16,53 +16,53 @@ export default class Footer extends Component {
             <h3>Payment</h3>
             <img
               className="payment"
-              src={require("./img/bca.jpeg")}
+              src={require("../img/bca.jpeg")}
               alt="bca"
             />
             <img
               className="payment"
-              src={require("./img/mandiri.png")}
+              src={require("../img/mandiri.png")}
               alt="Mandiri"
             />
             <img
               className="payment"
-              src={require("./img/cimbniaga.jpeg")}
+              src={require("../img/cimbniaga.jpeg")}
               alt="Cimb Niaga"
             />
-            <img className="payment" src={require("./img/bpr.jpg")} alt="BPR" />
+            <img className="payment" src={require("../img/bpr.jpg")} alt="BPR" />
             <img
               className="payment"
-              src={require("./img/indomaret.png")}
+              src={require("../img/indomaret.png")}
               alt="Indomaret"
             />
             <img
               className="payment"
-              src={require("./img/alfamart.jpg")}
+              src={require("../img/alfamart.jpg")}
               alt="Alfamart"
             />
-            <img className="payment" src={require("./img/bri.png")} alt="BRI" />
-            <img className="payment" src={require("./img/ovo.jpg")} alt="OVO" />
+            <img className="payment" src={require("../img/bri.png")} alt="BRI" />
+            <img className="payment" src={require("../img/ovo.jpg")} alt="OVO" />
           </div>
           <div className="col-4">
             <h3>delivery</h3>
             <img
               className="delivery"
-              src={require("./img/jne.jpeg")}
+              src={require("../img/jne.jpeg")}
               alt="Jne"
             />
             <img
               className="delivery"
-              src={require("./img/posindonesia.png")}
+              src={require("../img/posindonesia.png")}
               alt="Pos Indonesia"
             />
             <img
               className="delivery"
-              src={require("./img/jnt.jpg")}
+              src={require("../img/jnt.jpg")}
               alt="JNT"
             />
             <img
               className="delivery"
-              src={require("./img/tiki.jpg")}
+              src={require("../img/tiki.jpg")}
               alt="TIKI"
             />
           </div>
