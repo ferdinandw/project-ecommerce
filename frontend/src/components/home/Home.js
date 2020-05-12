@@ -57,6 +57,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {addToCart} from './../actioncreators/cart'
 import {Link} from 'react-router-dom'
+import Detail from './../detail/detail'
 
 class Home extends Component{
     
@@ -74,6 +75,7 @@ class Home extends Component{
                             <button to="/" className="btn btn-outline-dark" onClick={()=>{this.handleClick(item.id)}}>
                                 <Link to="/cart">Add Item</Link>
                             </button>
+                            <Detail/>
                         </div>
 
                         <div className="card-content">
