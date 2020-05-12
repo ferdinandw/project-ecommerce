@@ -11,20 +11,18 @@ export default class Carousel extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 5,
-      slidesToScroll: 3,
+      slidesToScroll: 5,
     };
     return (
-      <div className="container-fluid row">
-          <h1>MINI SLIDERNYA BLM JADI</h1>
-        <div className="col ">
+      <div className="container">
+        <div className="">
           <Slider {...settings}>
-            <h1>BELUM JADI</h1>
-            <img src={require("./img/1.png")} alt="Gambar 1" />
-            <h1>BELUM JADI 2</h1>
-            <img src={require("./img/2.png")} alt="Gambar 1" />
-            <h1>BELUM JADI 3</h1>
-            <h1>BELUM JADI 4</h1>
-            <h1>BELUM JADI 5</h1>
+            <img src={require("../img/1.png")} alt="Gambar 1" />
+            <img src={require("../img/2.png")} alt="Gambar 1" />
+            <img src={require("../img/3.png")} alt="Gambar 1" />
+            <img src={require("../img/1.png")} alt="Gambar 1" />
+            <img src={require("../img/2.png")} alt="Gambar 1" />
+            <img src={require("../img/3.png")} alt="Gambar 1" />
           </Slider>
         </div>
       </div>

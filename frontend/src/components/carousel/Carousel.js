@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import "./CarouselAndFooter.css";
 
 export default class Carousel extends Component {
   render() {
@@ -27,12 +26,12 @@ export default class Carousel extends Component {
           <img
             src={require("../img/2.png")}
             alt="Gambar"
-            style={{ height: "35%", width: "100%", marginBottom: "5%" }}
+            style={{ height: "45%", width: "100%", marginBottom: "5%" }}
           />
           <img
             src={require("../img/3.png")}
             alt="Gambar"
-            style={{ height: "34%", width: "100%", marginBottom: "5%" }}
+            style={{ height: "35%", width: "100%", marginBottom: "5%" }}
           />
         </div>
       </div>

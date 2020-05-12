@@ -5,20 +5,23 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
+}
   
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
-  }
-
+}
+.container-fluid{
+  padding: 0;
+  margin: 0;
+}
   
   
-  .slick-slide {
+.slick-slide {
     height: 25%;
     border: 4px solid #F25634;
     box-sizing: border-box;
-  }
+}
   
   .slick-slide img {
     height: 25%;
@@ -44,4 +47,7 @@ body {
 }
 .cat{
   height: 500px;
+}
+.test{
+  background-color: blue;
 }
