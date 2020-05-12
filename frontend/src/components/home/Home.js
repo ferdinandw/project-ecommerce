@@ -20,13 +20,13 @@ const Home = () => {
     //     )
     // });
     return(
-            <div className="container-fluid">
+            <div className="container-fluid content">
             <h4 className="pb-5">Item List</h4>
                 <div className="row">
                     {/* {itemList} */}
                     <div className="col-md-3">
                         <div class="card mb-4">
-                            <img src={require("./img/1.png")} class="card-img-top" alt="..."/>
+                            <img src={require("../img/1.png")} class="card-img-top" alt="..."/>
                             <div class="card-body">
                                 <h4 className="card-title">Ferdinand</h4>
                                 <h5 className="card-subtitle mb-2">Rp 20.000</h5>

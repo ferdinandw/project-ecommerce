@@ -1,59 +1,42 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/navbar/Navbar1";
-import Navbar0 from "./components/navbar/Navbar0";
-import Category from "./components/Category";
-import Carousel from "./components/Carousel";
-import Description from "./components/Description";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import Man from "./components/Man";
-import MiniCarousel from "./components/MiniCarousel";
-import Register from "./components/Register";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/navbar/Navbar'
+import Category from './components/category/Category'
+import Carousel from './components/carousel/Carousel';
+import Footer from './components/footer/Footer';
+import Home from './components/home/Home'
+import ItemSell from './components/ItemSelling/ItemSell'
+import Login from './components/login/Login'
+import MiniCarousel from './components/carousel/MiniCarousel'
+import Register from './components/register/Register'
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Navbar0 />
-        <Navbar />
 
+
+class App extends Component{
+  render(){
+  return (
+    <Router>
+      <Navbar/>
         <Switch>
-          <Route path="/new">
-            <Description />
-          </Route>
-          <Route path="/man">
-            <Man />
-          </Route>
-          <Route path="/woman">
-            <Description />
-          </Route>
-          <Route path="/electronic">
-            <Description />
-          </Route>
-          <Route path="/accessories">
-            <Description />
-          </Route>
-          <Route path="/beauty">
-            <Description />
-          </Route>
           <Route path="/login">
-            <Login />
-            <Category />
+            <Login/>
+            <Category/>
           </Route>
           <Route path="/register">
-            <Register />
-            <Category />
+            <Register/>
+            <Category/>
+          </Route>
+          <Route path="/seller">
+            <ItemSell/>
+            <Category/>
           </Route>
           <Route path="/">
-            <Carousel />
-            <MiniCarousel />
-            <Home />
-            <Category />
-            <Carousel />
+            <Carousel/>
+            <MiniCarousel/>
+            <Home/>
+            <Category/>
           </Route>
         </Switch>
         <Footer />
