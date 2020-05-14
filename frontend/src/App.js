@@ -7,18 +7,22 @@ import Navbar from './components/navbar/Navbar'
 import Searches from './components/searchFilter/Searches'
 import Category from './components/category/Category'
 import Carousel from './components/carousel/Carousel';
+import Cart from './components/cart/Cart'
 import Footer from './components/footer/Footer';
 import Home from './components/home/Home'
 import ItemSell from './components/ItemSelling/ItemSell'
 import Login from './components/login/Login'
 import MiniCarousel from './components/carousel/MiniCarousel'
 import Register from './components/register/Register'
-
-
+import cartReducer from './components/reducer/CartReducer';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+const store = createStore(cartReducer);
 class App extends Component{
   render(){
   return (
     <Router>
+      <Provider store={store}>
       <Navbar/>
       <Searches />
         <Switch>
@@ -34,6 +38,10 @@ class App extends Component{
             <ItemSell/>
             <Category/>
           </Route>
+          <Route path="/cart">
+            <Cart/>
+            <Category/>
+          </Route>
           <Route path="/">
             <Carousel/>
             <MiniCarousel/>
@@ -42,6 +50,7 @@ class App extends Component{
           </Route>
         </Switch>
         <Footer />
+        </Provider>
       </Router>
     );
   }
