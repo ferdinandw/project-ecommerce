@@ -93,6 +93,8 @@ class Home extends Component{
                     {itemList}
                 </div>
             </div>
+            
+    )
         )
     }
 }
