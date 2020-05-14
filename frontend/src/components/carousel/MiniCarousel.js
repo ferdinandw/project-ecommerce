@@ -19,9 +19,9 @@ export default class Carousel extends Component {
         <div className="col ">
           <Slider {...settings}>
             <h1>BELUM JADI</h1>
-            <img src={require("./img/1.png")} alt="Gambar 1" />
+            <img src={require("../img/1.png")} alt="Gambar 1" />
             <h1>BELUM JADI 2</h1>
-            <img src={require("./img/2.png")} alt="Gambar 1" />
+            <img src={require("../img/2.png")} alt="Gambar 1" />
             <h1>BELUM JADI 3</h1>
             <h1>BELUM JADI 4</h1>
             <h1>BELUM JADI 5</h1>
