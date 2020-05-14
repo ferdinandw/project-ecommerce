@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/navbar/Navbar'
-import Searches from './components/searchFilter/Searches'
+// import Searches from './components/searchFilter/Searches'
 import Category from './components/category/Category'
 import Carousel from './components/carousel/Carousel';
 import Cart from './components/cart/Cart'
@@ -24,7 +24,7 @@ class App extends Component{
     <Router>
       <Provider store={store}>
       <Navbar/>
-      <Searches />
+      {/* <Searches /> */}
         <Switch>
           <Route path="/login">
             <Login/>

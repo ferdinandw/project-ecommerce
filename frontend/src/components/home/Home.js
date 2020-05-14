@@ -68,34 +68,40 @@ class Home extends Component{
     render(){
         let itemList = this.props.items.map(item=>{
             return(
-                <div className="card" key={item.id}>
-                        <div className="card-image">
-                            <img src={item.img} alt={item.title}/>
-                            <span className="card-title">{item.title}</span>
-                            <button to="/" className="btn btn-outline-dark" onClick={()=>{this.handleClick(item.id)}}>
-                                <Link to="/cart">Add Item</Link>
-                            </button>
+                <div className="col-md-3">
+                    <div className="card mb-4" key={item.id}>  
+                            <img src={item.img} class="card-img-top" alt="..."/>
+                            <div class="card-body">
+                            <h4 className="card-title">{item.title}</h4>
+                            <h5 className="card-subtitle mb-2">{item.price}</h5>
+                            <h6 className="card-subtitle mb-2">Stock : {item.quantity}</h6>
+                            <p class="card-text">{item.desc}</p>
                             <Detail/>
-                        </div>
+                                <button to="/" className="btn btn-outline-dark" onClick={()=>{this.handleClick(item.id)}}>
+                                    <Link to="/cart">Add Item</Link>
+                                </button>
+                                <a href="/" class="card-link">Buy Now</a>
+                                <a href="/" class="card-link">Add To Cart</a>
+                            </div>
 
-                        <div className="card-content">
-                            <p>{item.desc}</p>
-                            <p><b>Price: {item.price}$</b></p>
-                        </div>
-                 </div>
+                            {/* <div className="card-content">
+                                <p>{item.desc}</p>
+                                <p><b>Price: {item.price}$</b></p>
+                            </div> */}
+                    </div>
+                </div>
             )
         })
 
         return(
             <div className="container">
                 <h3 className="center">Our items</h3>
-                <div className="box">
+                <div className="row">
                     {itemList}
                 </div>
             </div>
             
     )
-        )
     }
 }
 const mapStateToProps = (state)=>{
