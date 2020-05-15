@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,7 +14,7 @@ import ItemSell from './components/ItemSelling/ItemSell'
 import Login from './components/login/Login'
 import MiniCarousel from './components/carousel/MiniCarousel'
 import Register from './components/register/Register'
-import cartReducer from './components/reducer/CartReducer';
+import cartReducer from './components/reducer';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import TesSearch from './components/searchFilter/TesSearch';
