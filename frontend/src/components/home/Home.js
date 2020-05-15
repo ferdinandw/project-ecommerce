@@ -108,8 +108,6 @@ const mapDispatchToProps= (dispatch)=>{
     return{
         addToCart: (id)=>{dispatch(addToCart(id))}
     }
->>>>>>> 2127f9415f7f87e3319d9f540c4ec64aa6ddfdc1
-=======
           </div>
       );
     });
