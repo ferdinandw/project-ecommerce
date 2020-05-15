@@ -34,7 +34,7 @@ class Searches extends Component {
           <CardBody>
             <p className="">
               <img
-                src={blankImg}
+                src={require("../img/1.png")}
                 className={id}
                 alt={category.name}
               />
