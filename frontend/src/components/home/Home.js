@@ -23,7 +23,7 @@
 //     //          </div>
 //     //     )
 //     // });
-    
+
 //     return(
 //             <div className="container-fluid content">
 //             <h4 className="pb-5">Item List</h4>
@@ -50,62 +50,72 @@
 //     )
 // }
 
-
 // export default Home
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import {addToCart} from './../actioncreators/cart'
-import {Link} from 'react-router-dom'
-import Detail from './../detail/detail'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addToCart } from "./../actioncreators/cart";
+import { Link } from "react-router-dom";
+import Detail from "./../detail/detail";
 
-class Home extends Component{
-    
-    handleClick = (id)=>{
-        this.props.addToCart(id);
-    }
+class Home extends Component {
+  handleClick = (id) => {
+    this.props.addToCart(id);
+  };
 
-    render(){
-        let itemList = this.props.items.map(item=>{
-            return(
-                <div className="card" key={item.id}>
-                        <div className="card-image">
-                            <img src={item.img} alt={item.title}/>
-                            <span className="card-title">{item.title}</span>
-                            <button to="/" className="btn btn-outline-dark" onClick={()=>{this.handleClick(item.id)}}>
-                                <Link to="/cart">Add Item</Link>
-                            </button>
-                            <Detail/>
-                        </div>
-
-                        <div className="card-content">
-                            <p>{item.desc}</p>
-                            <p><b>Price: {item.price}$</b></p>
-                        </div>
-                 </div>
-            )
-        })
-
-        return(
-            <div className="container">
-                <h3 className="center">Our items</h3>
-                <div className="box">
-                    {itemList}
-                </div>
+  render() {
+    let itemList = this.props.items.map((item) => {
+      return (
+        <div className="card" style={{ width: "18rem" }} key={item.id}>
+          <div className="col pt-4 mt-5 mb-2">
+            {" "}
+            <div className="card-image">
+              <img src={item.img} alt={item.title} className="card-img-top" />
+              <span className="card-title" style={{ textAlign: "center" }}>
+                {item.title}
+              </span>
+              <br />
+              <button
+                to="/"
+                className="btn btn-outline-dark"
+                onClick={() => {
+                  this.handleClick(item.id);
+                }}
+              >
+                <Link to="/cart">Add Item</Link>
+              </button>
+              <Detail />
             </div>
-        )
-    }
-}
-const mapStateToProps = (state)=>{
-    return {
-      items: state.items
-    }
-  }
-const mapDispatchToProps= (dispatch)=>{
-    
-    return{
-        addToCart: (id)=>{dispatch(addToCart(id))}
-    }
-}
+            <div className="card-content">
+              <p>{item.desc}</p>
+              <p>
+                <b>Price: {item.price}$</b>
+              </p>
+            </div>
+          </div>
+        </div>
+      );
+    });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Home)
+    return (
+      <div className="container">
+        <h3 className="center">Our items</h3>
+        <div className="box">{itemList}</div>
+      </div>
+    );
+  }
+}
+const mapStateToProps = (state) => {
+  return {
+    items: state.items,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => {
+      dispatch(addToCart(id));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
