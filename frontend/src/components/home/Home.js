@@ -58,6 +58,7 @@ import { addToCart } from "./../actioncreators/cart";
 import { Link } from "react-router-dom";
 import Detail from "./../detail/detail";
 
+
 class Home extends Component {
   handleClick = (id) => {
     this.props.addToCart(id);
@@ -105,6 +106,12 @@ class Home extends Component {
         <div className="box">{itemList}</div>
       </div>
     );
+
+const mapStateToProps = (state)=>{
+    return {
+      items: state.items
+    }
+
   }
 }
 const mapStateToProps = (state) => {
