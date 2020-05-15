@@ -49,6 +49,7 @@ module.exports = {
         throw err;
       });
   },
+  // update by id.
   updateDataById: (req, res) => {
     User.update(
       {
