@@ -13,7 +13,7 @@ export default class Carousel extends Component {
       slidesToScroll: 1,
     };
     return (
-      <div>
+      <div className="pt-5">
         <div className="row mx-2 mt-4">
           <div className="col col-md-6 col-sm-12">
             <Slider {...settings}>
