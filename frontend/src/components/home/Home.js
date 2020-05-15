@@ -66,16 +66,12 @@ class Home extends Component {
   render() {
     let itemList = this.props.items.map((item) => {
       return (
-        <div className="row">
-          <div className="col my-2 mt-5 pt-2 pl-0 pr-0 md-4 sm-12">
-            <div className="card" style={{ width: "18rem" }} key={item.id}>
-              {" "}
-              <div className="card-image">
+          <div className="col-md-4 col-sm-12 my-2 mt-5 pt-2">
+            <div className="card" key={item.id}>
                 <img src={item.img} alt={item.title} className="card-img-top" />
-                <span className="card-title" style={{ textAlign: "center" }}>
+                <h4 className="card-title" style={{ textAlign: "center" }}>
                   {item.title}
-                </span>
-              </div>
+                </h4>
               <div className="card-content">
                 <p>{item.desc}</p>
                 <p>
@@ -95,101 +91,13 @@ class Home extends Component {
               </button>
             </div>
           </div>
-
-          <div className="col my-2 mt-5 pt-2 pl-0 pr-0 md-4 sm-12">
-            <div className="card" style={{ width: "18rem" }} key={item.id}>
-              {" "}
-              <div className="card-image">
-                <img src={item.img} alt={item.title} className="card-img-top" />
-                <span className="card-title" style={{ textAlign: "center" }}>
-                  {item.title}
-                </span>
-              </div>
-              <div className="card-content">
-                <p>{item.desc}</p>
-                <p>
-                  <b>Price: {item.price}$</b>
-                </p>
-              </div>
-              <br />
-              <Detail />
-              <button
-                to="/"
-                className="btn btn-outline-dark"
-                onClick={() => {
-                  this.handleClick(item.id);
-                }}
-              >
-                <Link to="/cart">Add Item</Link>
-              </button>
-            </div>
-          </div>
-
-          <div className="col my-2 mt-5 pt-2 pl-0 pr-0 md-4 sm-12">
-            <div className="card" style={{ width: "18rem" }} key={item.id}>
-              {" "}
-              <div className="card-image">
-                <img src={item.img} alt={item.title} className="card-img-top" />
-                <span className="card-title" style={{ textAlign: "center" }}>
-                  {item.title}
-                </span>
-              </div>
-              <div className="card-content">
-                <p>{item.desc}</p>
-                <p>
-                  <b>Price: {item.price}$</b>
-                </p>
-              </div>
-              <br />
-              <Detail />
-              <button
-                to="/"
-                className="btn btn-outline-dark"
-                onClick={() => {
-                  this.handleClick(item.id);
-                }}
-              >
-                <Link to="/cart">Add Item</Link>
-              </button>
-            </div>
-          </div>
-
-          <div className="col my-2 mt-5 pt-2 pl-0 pr-0 md-4 sm-12">
-            <div className="card" style={{ width: "18rem" }} key={item.id}>
-              {" "}
-              <div className="card-image">
-                <img src={item.img} alt={item.title} className="card-img-top" />
-                <span className="card-title" style={{ textAlign: "center" }}>
-                  {item.title}
-                </span>
-              </div>
-              <div className="card-content">
-                <p>{item.desc}</p>
-                <p>
-                  <b>Price: {item.price}$</b>
-                </p>
-              </div>
-              <br />
-              <Detail />
-              <button
-                to="/"
-                className="btn btn-outline-dark"
-                onClick={() => {
-                  this.handleClick(item.id);
-                }}
-              >
-                <Link to="/cart">Add Item</Link>
-              </button>
-            </div>
-          </div>
-        </div>
       );
     });
 
     return (
       <div className="container">
         <h3 className="center">Our items</h3>
-        <div className="box">{itemList}</div>
+        <div className="row">{itemList}</div>
       </div>
     );
   }
