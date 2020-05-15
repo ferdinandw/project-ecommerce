@@ -19,5 +19,6 @@ const upload = multer({
 router.post("/create", upload.single("imageUrl"), Item.create);
 router.get("/show", Item.getAllData);
 router.get("/show/:itemId", Item.getDataById);
+router.get("/search", Item.searchName);
 router.delete("/delete/:itemId", Item.deleteDataById);
 module.exports = router;

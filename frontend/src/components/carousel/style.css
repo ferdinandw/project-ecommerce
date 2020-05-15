@@ -50,3 +50,8 @@ code {
 /* .test{
   background-color: blue;
 } */
+
+.card-img-top{
+  width: 100%;
+  height: 200px;
+}

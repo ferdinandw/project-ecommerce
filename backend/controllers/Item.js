@@ -39,6 +39,7 @@ module.exports = {
         throw err;
       });
   },
+  // update by id.
   updateDataById: (req, res) => {
     Item.update(
       {
@@ -55,5 +56,14 @@ module.exports = {
       .catch((err) => {
         throw err;
       });
+  },
+  searchName: (req, res) => {
+    const name = newRegExp(req.query["name"], "i");
+    name
+      .find({ name })
+      .select("-password")
+      .select("- username")
+      .then((result) => res.json(result))
+      .catch((err) => res.json(err));
   },
 };
