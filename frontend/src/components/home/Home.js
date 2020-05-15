@@ -90,24 +90,6 @@ class Home extends Component {
                 <Link to="/cart">Add Item</Link>
               </button>
             </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            
-    )
-=======
-        )
-    }
-}
-const mapStateToProps = (state)=>{
-    return {
-      items: state.items
-    }
-  }
-const mapDispatchToProps= (dispatch)=>{
-    
-    return{
-        addToCart: (id)=>{dispatch(addToCart(id))}
-    }
           </div>
       );
     });
@@ -119,7 +101,6 @@ const mapDispatchToProps= (dispatch)=>{
       </div>
     );
   }
->>>>>>> fce2c22366bbc3577f8718bde796cd3c464d362a
 }
 const mapStateToProps = (state) => {
   return {
