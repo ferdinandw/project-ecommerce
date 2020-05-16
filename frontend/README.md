@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Login
 
 app.js
-utils (authTOken)
+action (types)
 action (auth)
+utils (authTOken)
 store (store)
 reducers (auth)
-action (types)
