@@ -17,6 +17,7 @@ import Register from './components/register/Register'
 import cartReducer from './components/reducer';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import TesSearch from './components/searchFilter/TesSearch';
 const store = createStore(cartReducer);
 class App extends Component{
   render(){
@@ -24,7 +25,7 @@ class App extends Component{
     <Router>
       <Provider store={store}>
       <Navbar/>
-      {/* <Searches /> */}
+      <TesSearch />
         <Switch>
           <Route path="/login">
             <Login/>
