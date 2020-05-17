@@ -5,7 +5,7 @@ import { FaShoppingCart, FaDollarSign } from "react-icons/fa";
 
 const Navbar2 = () => {
   return (
-    <NavWrapper className="navbar navbar-expend-sm fixed-top navbar navbar-dark px-sm-5">
+    <NavWrapper className="navbar navbar-expend-sm sticky-top navbar navbar-dark px-sm-5">
       <Link className="navbar-brand" to="/">
         Shop Name
       </Link>
