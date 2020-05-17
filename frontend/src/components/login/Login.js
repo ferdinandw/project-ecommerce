@@ -3,6 +3,9 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "./../actioncreators/auth";
+import { Formik, Field, Form } from "formik";
+import axios from "axios";
+import "./style.css";
 
 class Login extends Component {
   constructor() {
@@ -42,38 +45,89 @@ class Login extends Component {
     console.log(userData);
   };
   render() {
-    const { errors } = this.state;
+    // const { errors } = this.state;
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <input
-              onChange={this.onChange}
-              value={this.state.email}
-              error={errors.email}
-              placeholder=" email"
-              id="email"
-              size="25"
-              type="email"
-            />
+      <div className=" mt-4">
+        <br />
+        <div className="card mt-5">
+          <h1 className="text-center">Login Form</h1>
+          <br />
+          <div className="row">
+            <div className="col-md-4" style={{ marginLeft: "50px" }}>
+              <img src="../img/3.png" alt="Gambar 1" />
+            </div>
+            <div
+              style={{
+                marginLeft: "380px",
+                marginBottom: "30px",
+                marginTop: "0",
+                paddingTop: "0",
+              }}
+            >
+              <Formik
+                initialValues={{
+                  email: "",
+                  password: "",
+                }}
+                validate={(values) => {
+                  let errors = {};
+                  if (values.email === "") {
+                    errors.email = "Name is required";
+                  }
+                  if (values.password === "") {
+                    errors.password = "Born is requird";
+                  }
+                  return errors;
+                }}
+                onSubmit={(values, { setSubmitting }) => {
+                  axios.post("https://api.juliaveronica.com/users/login", {
+                    values,
+                  });
+                  alert("Form is Validated!");
+                  setSubmitting(false);
+                }}
+              >
+                {({ touched, errors, isSubmitting }) => (
+                  <Form>
+                    <div className="container">
+                      <div className="row justify-content-md-center">
+                        <div class="col-md-4 ">
+                          <div class="card">
+                            <div class="card-body " style={{ width: "60rem" }}>
+                              <Field
+                                placeholder="email"
+                                type="email"
+                                name="email"
+                                className={`${errors.email && touched.email}`}
+                              />
+                              <p />
+                              <Field
+                                placeholder="password"
+                                type="password"
+                                name="password"
+                                className={`${
+                                  errors.password && touched.password
+                                }`}
+                              />
+                              <p />
+                              <button
+                                type="submit"
+                                className="btn btn-outline-primary"
+                              >
+                                Login
+                              </button>
+                              {isSubmitting}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            </div>
           </div>
-          <div className="form-group">
-            <input
-              onChange={this.onChange}
-              value={this.state.password}
-              error={errors.password}
-              placeholder=" password"
-              id="password"
-              size="25"
-              type="password"
-            />
-          </div>
-          <div style={{ margin: "20px" }} className="text-center pt-4">
-            <button type="submit" className="btn btn-outline-primary">
-              Login
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
     );
   }
