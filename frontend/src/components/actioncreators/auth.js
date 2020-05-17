@@ -6,7 +6,7 @@ import { GET_ERRORS, SET_CURRENT_USER } from "./types";
 //register user
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post(`${"http://localhost:4000/users/register"}`, userData)
+    .post(`${"https://api.juliaveronica.com/users/register"}`, userData)
     .then((res) => history.push("/signin"))
     .catch((err) => dispatch({ type: GET_ERRORS, payload: err.response.data }));
 };
