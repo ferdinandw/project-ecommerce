@@ -47,53 +47,81 @@ class Login extends Component {
   render() {
     // const { errors } = this.state;
     return (
-      <div className=" mt-4">
+      <div
+        className=" mt-4"
+        style={{
+          marginLeft: "100px",
+          marginRight: "100px",
+          marginTop: "0",
+          paddingTop: "0",
+        }}
+      >
         <br />
         <div className="card mt-5">
-          <h1 className="text-center">Login Form</h1>
-          <br />
           <div className="row">
             <div className="col-md-4" style={{ marginLeft: "50px" }}>
-              <img src="../img/3.png" alt="Gambar 1" />
+              <img
+                src="./logo512.png"
+                alt="Gambar 1"
+                style={{ marginTop: "60px", width: "500px", height: "250px" }}
+              />
             </div>
-            <div
+            {/* <div
               style={{
                 marginLeft: "380px",
-                marginBottom: "30px",
-                marginTop: "0",
+                marginBottom: "0",
                 paddingTop: "0",
               }}
+            > */}
+            <h1 className="text-center mb-3">Login Form</h1>
+            <Formik
+              initialValues={{
+                email: "",
+                password: "",
+              }}
+              validate={(values) => {
+                let errors = {};
+                if (values.email === "") {
+                  errors.email = "Name is required";
+                }
+                if (values.password === "") {
+                  errors.password = "Born is requird";
+                }
+                return errors;
+              }}
+              onSubmit={(values, { setSubmitting }) => {
+                axios.post("https://api.juliaveronica.com/users/login", {
+                  values,
+                });
+                alert("Form is Validated!");
+                setSubmitting(false);
+              }}
             >
-              <Formik
-                initialValues={{
-                  email: "",
-                  password: "",
-                }}
-                validate={(values) => {
-                  let errors = {};
-                  if (values.email === "") {
-                    errors.email = "Name is required";
-                  }
-                  if (values.password === "") {
-                    errors.password = "Born is requird";
-                  }
-                  return errors;
-                }}
-                onSubmit={(values, { setSubmitting }) => {
-                  axios.post("https://api.juliaveronica.com/users/login", {
-                    values,
-                  });
-                  alert("Form is Validated!");
-                  setSubmitting(false);
-                }}
-              >
-                {({ touched, errors, isSubmitting }) => (
+              {({ touched, errors, isSubmitting }) => (
+                <div
+                  style={{
+                    marginLeft: "380px",
+                    marginBottom: "0",
+                    paddingTop: "0",
+                  }}
+                >
                   <Form>
                     <div className="container">
                       <div className="row justify-content-md-center">
                         <div class="col-md-4 ">
-                          <div class="card">
-                            <div class="card-body " style={{ width: "60rem" }}>
+                          <div
+                            class="card"
+                            style={{
+                              backgroundColor: "white",
+                              boxShadow: " 0 4px 8px 0 rgba(0,0,0,0.2)",
+                            }}
+                          >
+                            <div
+                              class="card-body "
+                              style={{
+                                width: "60rem",
+                              }}
+                            >
                               <Field
                                 placeholder="email"
                                 type="email"
@@ -123,12 +151,13 @@ class Login extends Component {
                       </div>
                     </div>
                   </Form>
-                )}
-              </Formik>
-            </div>
+                </div>
+              )}
+            </Formik>
           </div>
         </div>
       </div>
+      // </div>
     );
   }
 }
