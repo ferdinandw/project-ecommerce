@@ -37,12 +37,12 @@ class Register extends Component {
       phone: this.state.phone,
       password: this.state.password,
     };
-    this.props.history.registerUser(newUser, this.props.history);
+    this.props.registerUser(newUser, this.props.history);
     console.log(newUser);
   };
 
   render() {
-    const { errors } = this.state;
+    const { errors } = this.props;
     return (
       <AppRegister>
         {/* form register */}
