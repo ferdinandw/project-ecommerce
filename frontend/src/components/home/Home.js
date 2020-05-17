@@ -52,28 +52,32 @@
 
 // export default Home
 
-import React, { Component } from "react";
+import React, {useEffect} from "react";
 import { connect } from "react-redux";
-import { addToCart } from "./../actioncreators/cart";
+// import { addToCart } from "./../actioncreators/cart";
 import { Link } from "react-router-dom";
 import Detail from "./../detail/detail";
+import {getItem} from './../actioncreators/Item'
+// import Axios from "axios";
 
-class Home extends Component {
-  handleClick = (id) => {
+const Home = (props) => {
+  useEffect(()=> {
+    props.getItem()
+  })
+  const handleClick = (id) => {
     this.props.addToCart(id);
   };
-
-  render() {
-    let itemList = this.props.items.map((item) => {
+  console.log(props)
+    const itemList = props.data.map((item) => {
       return (
           <div className="col-md-4 col-sm-12 my-2 mt-5 pt-2">
             <div className="card" key={item.id}>
-                <img src={item.img} alt={item.title} className="card-img-top" />
+                <img src={item.imageUrl} alt={item.name} className="card-img-top" />
                 <h4 className="card-title" style={{ textAlign: "center" }}>
-                  {item.title}
+                  {item.name}
                 </h4>
               <div className="card-content">
-                <p>{item.desc}</p>
+                <p>{item.description}</p>
                 <p>
                   <b>Price: {item.price}$</b>
                 </p>
@@ -83,9 +87,7 @@ class Home extends Component {
               <button
                 to="/"
                 className="btn btn-outline-dark"
-                onClick={() => {
-                  this.handleClick(item.id);
-                }}
+                onClick={handleClick}
               >
                 <Link to="/cart">Add Item</Link>
               </button>
@@ -94,24 +96,27 @@ class Home extends Component {
       );
     });
 
-    return (
-      <div className="container">
-        <h3 className="center">Our items</h3>
-        <div className="row">{itemList}</div>
-      </div>
-    );
-  }
+  return (
+
+    
+    <div className="container">
+      <h3 className="center">Our items</h3>
+      <div className="row">{itemList}</div>
+    </div>
+  );
 }
+
 const mapStateToProps = (state) => {
   return {
-    items: state.items,
+    data: state.item.data,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => {
-      dispatch(addToCart(id));
-    },
+      // addToCart: (id) => {
+      //   dispatch(addToCart(id));
+      // },
+    getItem
   };
 };
 

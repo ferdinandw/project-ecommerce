@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import axios from 'axios';
 import './search.css';
 
@@ -34,7 +34,7 @@ class Searches extends Component {
           <CardBody>
             <p className="">
               <img
-                src={blankImg}
+                src={require("../img/1.png")}
                 className={id}
                 alt={category.name}
               />
