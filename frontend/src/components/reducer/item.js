@@ -9,7 +9,7 @@ const Test = () => {
       setData(res.data);
     });
   }, []);
-
+  
   const showData = data.map((data, id) => {
     return (
       <tr key={id}>

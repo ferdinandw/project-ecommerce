@@ -45,72 +45,53 @@ class Login extends Component {
     console.log(userData);
   };
   render() {
-    // const { errors } = this.state;
     return (
-      <div
-        className="container mt-4"
-        // style={{
-        //   marginLeft: "100px",
-        //   marginRight: "100px",
-        //   marginTop: "0",
-        //   paddingTop: "0",
-        // }}
-      >
-      <div className="row mt-5">
-        <div className="col-md-6">
-          <div className="">
-            {/* <div className="col-md-4" style={{ marginLeft: "50px" }}> */}
-              <img
-                src="./logo512.png"
-                alt="Gambar 1"
-                style={{ marginTop: "60px", width: "500px", height: "250px" }}
-              />
-            {/* </div> */}
-            {/* <div
-              style={{
-                marginLeft: "380px",
-                marginBottom: "0",
-                paddingTop: "0",
-              }}
-            > */}
-            </div>
-            <div className="col-md-6">
-            <h1 className="text-center mb-3">Login Form</h1>
-            <Formik
-              initialValues={{
-                email: "",
-                password: "",
-              }}
-              validate={(values) => {
-                let errors = {};
-                if (values.email === "") {
-                  errors.email = "Name is required";
-                }
-                if (values.password === "") {
-                  errors.password = "Born is requird";
-                }
-                return errors;
-              }}
-              onSubmit={(values, { setSubmitting }) => {
-                axios.post("https://api.juliaveronica.com/users/login", {
-                  values,
-                });
-                alert("Form is Validated!");
-                setSubmitting(false);
-              }}
-            >
-              {({ touched, errors, isSubmitting }) => (
+        <div className="container mt-4" >
+            <div className="card">
+                <div className="row">
+                <div className="col-md-6">
+                    <img
+                    src="./logo512.png"
+                    alt="Gambar 1"
+                    style={{ marginTop: "", width: "100%", height: "250px" }}
+                />
+                </div>
+                <div className="col-md-6">
+                    <h1 className="text-center mb-3">Login Form</h1>
+                    <Formik
+                        initialValues={{
+                            email: "",
+                            password: "",
+                        }}
+                        validate={(values) => {
+                            let errors = {};
+                            if (values.email === "") {
+                            errors.email = "Name is required";
+                            }
+                            if (values.password === "") {
+                            errors.password = "Born is requird";
+                            }
+                            return errors;
+                        }}
+                        onSubmit={(values, { setSubmitting }) => {
+                            axios.post("https://api.juliaveronica.com/users/login", {
+                            values,
+                            });
+                            alert("Form is Validated!");
+                            setSubmitting(false);
+                        }}
+                        >
+                            {({ touched, errors, isSubmitting }) => (
                 <div
-                  style={{
-                    marginLeft: "380px",
-                    marginBottom: "0",
-                    paddingTop: "0",
-                  }}
+                //   style={{
+                //     marginLeft: "380px",
+                //     marginBottom: "0",
+                //     paddingTop: "0",
+                //   }}
                 >
                   <Form>
                     <div className="container">
                       <div className="justify-content-md-center">
-                        <div class="col-md-4 ">
                           <div
                             class="card"
                             style={{
@@ -120,9 +101,9 @@ class Login extends Component {
                           >
                             <div
                               class="card-body "
-                              style={{
-                                width: "60rem",
-                              }}
+                            //   style={{
+                            //     width: "60rem",
+                            //   }}
                             >
                               <Field
                                 placeholder="email"
@@ -148,19 +129,19 @@ class Login extends Component {
                               </button>
                               {isSubmitting}
                             </div>
-                          </div>
                         </div>
                       </div>
                     </div>
                   </Form>
                 </div>
-              )}
-            </Formik>
-          </div>
+              )}       
+                    </Formik>
+                </div>
+            </div>
+                </div>
+                
+
         </div>
-        </div>
-      </div>
-      // </div>
     );
   }
 }

@@ -9,7 +9,7 @@ import Cart from "./components/cart/Cart";
 import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
 import ItemSell from "./components/ItemSelling/ItemSell";
-import Login from "./components/login/Login";
+import Login from "./components/login/Login2";
 import MiniCarousel from "./components/carousel/MiniCarousel";
 import Register from "./components/register/Register";
 import cartReducer from "./components/reducer/CartReducer";
@@ -68,7 +68,7 @@ class App extends Component {
             <Route path="/">
               <Carousel />
               <MiniCarousel />
-              <Home />
+              {/* <Home /> */}
               <Category />
               <Item />
             </Route>
