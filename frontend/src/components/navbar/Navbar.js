@@ -9,7 +9,7 @@ const Navbar2 = () => {
       <Link className="navbar-brand" to="/">
         Shop Name
       </Link>
-      <form class="form-inline my-2 my-lg-0">
+      <form className="form-inline my-2 my-lg-0">
         <input
           class="form-control mr-sm-2"
           type="search"
