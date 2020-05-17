@@ -14,14 +14,14 @@ export const addItem = () => {
         })
     }
 }
-export const getItem = (data) => {
+export const getItem = () => {
     return function(dispatch){
         axios
-        .get(`${url}/item/show`, data)
+        .get(`${url}/item/show`)
         .then(resp =>{
             dispatch({
                 type: `ITEM_GET`,
-                payload: resp.data
+                payload: resp
             })
         })
     }
