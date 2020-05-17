@@ -19,7 +19,7 @@ import store from "./store/store";
 import { setCurrentUser, logoutUser } from "./components/actioncreators/auth";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import TesSearch from "./components/searchFilter/TesSearch";
+// import TesSearch from "./components/searchFilter/TesSearch";
 import Item from "./components/reducer/item";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -47,7 +47,7 @@ class App extends Component {
       <Router>
         <Provider store={store}>
           <Navbar />
-          <TesSearch />
+          {/* <TesSearch /> */}
           <Switch>
             <Route path="/login">
               <Login />
