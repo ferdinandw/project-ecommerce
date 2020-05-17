@@ -58,13 +58,12 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Detail from "./../detail/detail";
 import {getItem} from './../actioncreators/Item'
+// import Axios from "axios";
 
 const Home = (props) => {
-  // const [data,setData] = props
   useEffect(()=> {
-    if(!props.data.length)
-      props.getItem()
-  }, [])
+    props.getItem()
+  })
   const handleClick = (id) => {
     this.props.addToCart(id);
   };
