@@ -69,8 +69,8 @@ class App extends Component {
               <Carousel />
               <MiniCarousel />
               {/* <Home /> */}
-              <Category />
               <Item />
+              <Category />
             </Route>
           </Switch>
           <Footer />
