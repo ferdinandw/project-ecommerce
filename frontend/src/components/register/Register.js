@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { registerUser } from "./../actioncreators/auth";
 // import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Formik, Field, Form } from "formik";
-import axios from "axios";
+// import { Formik, Field, Form } from "formik";
+// import axios from "axios";
 
 class Register extends Component {
   constructor() {
