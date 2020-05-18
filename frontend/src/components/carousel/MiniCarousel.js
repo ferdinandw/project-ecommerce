@@ -15,7 +15,7 @@ export default class Carousel extends Component {
     };
     return (
       <div className="container">
-        <Slider {...settings}>
+        <Slider {...settings} className="test">
           <img src={require("../img/2.png")} alt="Gambar 1" />
           <img src={require("../img/1.png")} alt="Gambar 1" />
           <img src={require("../img/3.png")} alt="Gambar 1" />
