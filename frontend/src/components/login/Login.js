@@ -87,7 +87,7 @@ class Login extends Component {
                   errors.email = "Name is required";
                 }
                 if (values.password === "") {
-                  errors.password = "Born is requird";
+                  errors.password = "Born is required";
                 }
                 return errors;
               }}
