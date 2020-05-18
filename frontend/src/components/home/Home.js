@@ -94,7 +94,7 @@ const Home = (props) => {
 
   return (
     <div className="container">
-      <h3 className="center">Our items</h3>
+      <h3 className="center pt-5">Our items</h3>
       <div className="row">{itemList}</div>
     </div>
   );
