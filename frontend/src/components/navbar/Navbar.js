@@ -31,7 +31,7 @@ const Navbar2 = () => {
             <FaDollarSign />
           </Link>
         </ButtonContainer>
-        <button className="btn btn-outline-dark">
+        <button className="btn btn-outline-danger">
           <Link to="/login">Login</Link>
         </button>
       </div>

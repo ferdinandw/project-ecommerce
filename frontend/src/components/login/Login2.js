@@ -6,6 +6,7 @@ import { loginUser } from "./../actioncreators/auth";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   constructor() {
@@ -46,65 +47,65 @@ class Login extends Component {
   };
   render() {
     return (
-        <div className="container mt-4" >
-            <div className="card">
-                <div className="row">
-                <div className="col-md-6">
-                    <img
-                    src="./logo512.png"
-                    alt="Gambar 1"
-                    style={{ marginTop: "", width: "100%", height: "250px" }}
-                />
-                </div>
-                <div className="col-md-6">
-                    <h1 className="text-center mb-3">Login Form</h1>
-                    <Formik
-                        initialValues={{
-                            email: "",
-                            password: "",
-                        }}
-                        validate={(values) => {
-                            let errors = {};
-                            if (values.email === "") {
-                            errors.email = "Name is required";
-                            }
-                            if (values.password === "") {
-                            errors.password = "Born is requird";
-                            }
-                            return errors;
-                        }}
-                        onSubmit={(values, { setSubmitting }) => {
-                            axios.post("https://api.juliaveronica.com/users/login", {
-                            values,
-                            });
-                            alert("Form is Validated!");
-                            setSubmitting(false);
-                        }}
-                        >
-                            {({ touched, errors, isSubmitting }) => (
-                <div
-                //   style={{
-                //     marginLeft: "380px",
-                //     marginBottom: "0",
-                //     paddingTop: "0",
-                //   }}
-                >
-                  <Form>
-                    <div className="container">
-                      <div className="justify-content-md-center">
+      <div className="container mt-5" style={{ marginBottom: "45px" }}>
+        <div className="card pb-3">
+          <div className="row">
+            <div className="col-md-6">
+              <img
+                src="./logo512.png"
+                alt="Login"
+                style={{ marginLeft: "35px", width: "80%", height: "300px" }}
+              />
+            </div>
+            <div className="col-md-6">
+import { loginUser } from "./../actioncreators/auth";
+              <h1 className="text-center mb-3 mt-3">Login Form</h1>
+              <Formik
+                initialValues={{
+                  email: "",
+                  password: "",
+                }}
+                validate={(values) => {
+                  let errors = {};
+                  if (values.email === "") {
+                    errors.email = "Name is required";
+                  }
+                  if (values.password === "") {
+                    errors.password = "Born is requird";
+                  }
+                  return errors;
+                }}
+                onSubmit={(values, { setSubmitting }) => {
+                  axios.post("https://api.juliaveronica.com/users/login", {
+                    values,
+                  });
+                  alert("Form is Validated!");
+                  setSubmitting(false);
+                }}
+              >
+                {({ touched, errors, isSubmitting }) => (
+                  <div
+                  //   style={{
+                  //     marginLeft: "380px",
+                  //     marginBottom: "0",
+                  //     paddingTop: "0",
+                  //   }}
+                  >
+                    <Form>
+                      <div
+                        className="container"
+                        style={{ marginLeft: "100px" }}
+                      >
+                        <div className="text-center">
                           <div
                             class="card"
                             style={{
                               backgroundColor: "white",
                               boxShadow: " 0 4px 8px 0 rgba(0,0,0,0.2)",
+                              width: "20rem",
                             }}
                           >
-                            <div
-                              class="card-body "
-                            //   style={{
-                            //     width: "60rem",
-                            //   }}
-                            >
+                            <div class="card-body" style={{ width: "" }}>
                               <Field
                                 placeholder="email"
                                 type="email"
@@ -127,21 +128,23 @@ class Login extends Component {
                               >
                                 Login
                               </button>
+                              <h6 className="mt-3">
+                                Don't have an account?
+                                <Link to="/register">Sign Up</Link>
+                              </h6>
                               {isSubmitting}
                             </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Form>
-                </div>
-              )}       
-                    </Formik>
-                </div>
+                    </Form>
+                  </div>
+                )}
+              </Formik>
             </div>
-                </div>
-                
-
+          </div>
         </div>
+      </div>
     );
   }
 }

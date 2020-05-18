@@ -9,11 +9,11 @@ const Test = () => {
       setData(res.data);
     });
   }, []);
-  
+
   const showData = data.map((data, id) => {
     return (
       <tr key={id}>
-        <td>{data.id}</td>
+        {/* <td>{data.id}</td> */}
         <td>
           <img src={data.image} alt="" />
         </td>
@@ -21,7 +21,7 @@ const Test = () => {
         <td>{data.price}</td>
         <td>{data.description}</td>
         <td>{data.quantity}</td>
-        <td>{data.categoryId}</td>
+        <td>{data.category.name}</td>
       </tr>
     );
   });
@@ -33,7 +33,7 @@ const Test = () => {
       >
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            {/* <th scope="col">ID</th> */}
             <th scope="col">Image</th>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
