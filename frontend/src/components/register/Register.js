@@ -57,105 +57,72 @@ class Register extends Component {
                 style={{ marginLeft: "35px", width: "80%", height: "300px" }}
               />
             </div>
-            <div className="col-md-6">
-              <h1
+            <div className="col-md-6 d-flex justify-content-center">
+              
+              <form onSubmit={this.onSubmit}>
+                <div className="container">
+                <h1
                 className="text-center mb-3 mt-3"
                 style={{ fontSize: "26px" }}
               >
                 Register Form
               </h1>
-              <Formik
-                initialValues={{
-                  email: "",
-                  phone: "",
-                  password: "",
-                }}
-                validate={(values) => {
-                  let errors = {};
-                  if (values.email === "") {
-                    errors.email = "Email is required";
-                  }
-                  if (values.phone === "") {
-                    errors.phone = "Phone is requird";
-                  }
-                  if (values.password === "") {
-                    errors.password = "Password is requird";
-                  }
-                  return errors;
-                }}
-                onSubmit={(values, { setSubmitting }) => {
-                  axios.post("https://api.juliaveronica.com/users/register", {
-                    values,
-                  });
-                  alert("Form is Validated!");
-                  setSubmitting(false);
-                }}
-              >
-                {({ touched, errors, isSubmitting }) => (
-                  <div
-                  //   style={{
-                  //     marginLeft: "380px",
-                  //     marginBottom: "0",
-                  //     paddingTop: "0",
-                  //   }}
-                  >
-                    <Form>
-                      <div
-                        className="container"
-                        style={{ marginLeft: "100px" }}
-                      >
-                        <div className="text-center">
-                          <div
-                            class="card"
-                            style={{
+                <div className="card" style={{
                               backgroundColor: "white",
                               boxShadow: " 0 4px 8px 0 rgba(0,0,0,0.2)",
                               width: "20rem",
-                            }}
-                          >
-                            <div class="card-body" style={{ width: "" }}>
-                              <Field
-                                placeholder="email"
-                                type="email"
-                                name="email"
-                                className={`${errors.email && touched.email}`}
-                              />
-                              <p />
-                              <Field
-                                placeholder="phone"
-                                type="phone"
-                                name="phone"
-                                className={`${errors.phone && touched.phone}`}
-                              />
-                              <p />
-                              <Field
-                                placeholder="password"
-                                type="password"
-                                name="password"
-                                className={`${
-                                  errors.password && touched.password
-                                }`}
-                              />
-                              <p />
-                              <button
-                                type="submit"
-                                className="btn btn-outline-primary"
-                              >
-                                Login
-                              </button>
-                              <h6 className="mt-3">
-                                Already have an account?
-                                <Link to="/login">Sign In</Link>
-                              </h6>
-                              {isSubmitting}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Form>
-                  </div>
-                )}
-              </Formik>
+                            }}>
+                  <div className="card-body">
+                <div className="form-group">
+                  {/* email */}
+                  <input className="form-control"
+                    onChange={this.onChange}
+                    value={this.state.email}
+                    error={errors.email}
+                    placeholder="Email"
+                    id="email"
+                    size="25"
+                    type="email"
+                  />
+                </div>
+                {/* phone */}
+                <div className="form-group">
+                  <input className="form-control"
+                    onChange={this.onChange}
+                    value={this.state.phone}
+                    error={errors.phone}
+                    placeholder="Phone"
+                    id="phone"
+                    size="25"
+                    type="number"
+                  />
+                </div>
+                {/* password */}
+                <div className="form-group">
+                  <input className="form-control"
+                    onChange={this.onChange}
+                    value={this.state.password}
+                    error={errors.password}
+                    placeholder="Password"
+                    id="password"
+                    size="25"
+                    type="password"
+                  />
+                </div>
+                {/* button signup */}
+                <div className="text-center mt-4">
+                  <button type="submit" className="btn btn-outline-dark">
+                    SignUp
+                  </button>
+                </div>
+                <h6 className="mt-4">
+                    Already Have an Account?  
+                    <Link to="/login">  Sign In</Link>
+                </h6>
+                </div>
+                </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
