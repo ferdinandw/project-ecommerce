@@ -122,7 +122,7 @@ const Penjualan = () => {
 
 export default Penjualan;
 
-{
+
   /* <div className="container mt-4 mb-4 content">
 <h1>Sell Your Item Here</h1>
 <form className="mb-4">
@@ -148,4 +148,4 @@ export default Penjualan;
   </button>
 </form>
 </div> */
-}
+
