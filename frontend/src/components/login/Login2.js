@@ -58,7 +58,6 @@ class Login extends Component {
               />
             </div>
             <div className="col-md-6">
-import { loginUser } from "./../actioncreators/auth";
               <h1 className="text-center mb-3 mt-3">Login Form</h1>
               <Formik
                 initialValues={{
