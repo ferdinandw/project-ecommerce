@@ -30,15 +30,16 @@ const Detail = (props) => {
       // props.addToCart(id);
       setShow(false)
     }
-    const showDetail = data.map((data) => {
+    const showDetail = data.map((data, id) => {
+      const URL = "http://3.136.102.205/";
       return(
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>{data.name}</Modal.Title>
           </Modal.Header>
             <Modal.Body>
-            <img
-            src={testimage}
+            <img key={id}
+            src={`${URL}${data.imageUrl}`}
             alt="Gambar"
             style={{ height: "45%", width: "100%", marginBottom: "5%" }}
             />

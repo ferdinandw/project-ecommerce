@@ -13,7 +13,7 @@ export default class Carousel extends Component {
       slidesToScroll: 1,
     };
     return (
-      <div className="pt-2">
+      <div className="pt-2 mb-4">
         <div className="row mt-3">
           {/* <div className="col-md-6 col-sm-12"> */}
           <div className="col-md-6">
@@ -28,7 +28,7 @@ export default class Carousel extends Component {
             <img
               src={require("../img/2.png")}
               alt="Gambar"
-              style={{ height: "23%", width: "100%", marginBottom: "5%" }}
+              style={{ height: "50%", width: "100%", marginBottom: "5%" }}
             />
             {/* <img
               src={require("../img/3.png")}
