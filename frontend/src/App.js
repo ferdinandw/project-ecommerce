@@ -51,11 +51,11 @@ class App extends Component {
           <Switch>
             <Route path="/login">
               <Login />
-              <Category />
+              {/* <Category /> */}
             </Route>
             <Route path="/register">
               <Register />
-              <Category />
+              {/* <Category /> */}
             </Route>
             <Route path="/seller">
               <ItemSell />

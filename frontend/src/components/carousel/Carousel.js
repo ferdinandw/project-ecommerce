@@ -13,26 +13,28 @@ export default class Carousel extends Component {
       slidesToScroll: 1,
     };
     return (
-      <div className="pt-5">
-        <div className="row mx-2 mt-4">
-          <div className="col-md-6 col-sm-12 mb-0">
+      <div className="pt-2">
+        <div className="row mt-3">
+          {/* <div className="col-md-6 col-sm-12"> */}
+          <div className="col-md-6">
             <Slider {...settings}>
               <img src={require("../img/1.png")} alt="Gambar 1" />
               <img src={require("../img/2.png")} alt="Gambar 2" />
               <img src={require("../img/3.png")} alt="Gambar 3" />
             </Slider>
           </div>
-          <div className="col col-md-6 col-sm-12 d-flex flex-column size">
+          {/* <div className="col-md-6 col-sm-12 d-flex flex-column size"> */}
+          <div className="col-md-6">
             <img
               src={require("../img/2.png")}
               alt="Gambar"
-              style={{ height: "37%", width: "100%", marginBottom: "5%" }}
+              style={{ height: "23%", width: "100%", marginBottom: "5%" }}
             />
-            <img
+            {/* <img
               src={require("../img/3.png")}
               alt="Gambar"
-              style={{ height: "35%", width: "100%", marginBottom: "5%" }}
-            />
+              style={{ height: "22%", width: "100%" }}
+            /> */}
           </div>
         </div>
       </div>

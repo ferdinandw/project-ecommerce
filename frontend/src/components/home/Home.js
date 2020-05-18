@@ -52,59 +52,53 @@
 
 // export default Home
 
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 // import { addToCart } from "./../actioncreators/cart";
 import { Link } from "react-router-dom";
 import Detail from "./../detail/detail";
-import {getItem} from './../actioncreators/Item'
+import { getItem } from "./../actioncreators/Item";
 // import Axios from "axios";
 
 const Home = (props) => {
-  useEffect(()=> {
-    props.getItem()
-  })
+  useEffect(() => {
+    props.getItem();
+  });
   const handleClick = (id) => {
     this.props.addToCart(id);
   };
-  console.log(props)
-    const itemList = props.data.map((item) => {
-      return (
-          <div className="col-md-4 col-sm-12 my-2 mt-5 pt-2">
-            <div className="card" key={item.id}>
-                <img src={item.imageUrl} alt={item.name} className="card-img-top" />
-                <h4 className="card-title" style={{ textAlign: "center" }}>
-                  {item.name}
-                </h4>
-              <div className="card-content">
-                <p>{item.description}</p>
-                <p>
-                  <b>Price: {item.price}$</b>
-                </p>
-              </div>
-              <br />
-              <Detail />
-              <button
-                to="/"
-                className="btn btn-outline-dark"
-                onClick={handleClick}
-              >
-                <Link to="/cart">Add Item</Link>
-              </button>
-            </div>
+  console.log(props);
+  const itemList = props.data.map((item) => {
+    return (
+      <div className="col-md-4 col-sm-12 my-2 mt-5 pt-2">
+        <div className="card" key={item.id}>
+          <img src={item.imageUrl} alt={item.name} className="card-img-top" />
+          <h4 className="card-title" style={{ textAlign: "center" }}>
+            {item.name}
+          </h4>
+          <div className="card-content">
+            <p>{item.description}</p>
+            <p>
+              <b>Price: {item.price}$</b>
+            </p>
           </div>
-      );
-    });
+          <br />
+          <Detail />
+          <button to="/" className="btn btn-outline-dark" onClick={handleClick}>
+            <Link to="/cart">Add Item</Link>
+          </button>
+        </div>
+      </div>
+    );
+  });
 
   return (
-
-    
     <div className="container">
       <h3 className="center">Our items</h3>
       <div className="row">{itemList}</div>
     </div>
   );
-}
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -113,10 +107,10 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-      // addToCart: (id) => {
-      //   dispatch(addToCart(id));
-      // },
-    getItem
+    // addToCart: (id) => {
+    //   dispatch(addToCart(id));
+    // },
+    getItem,
   };
 };
 
