@@ -9,7 +9,7 @@ const Test = () => {
       setData(res.data);
     });
   }, []);
-  
+
   const showData = data.map((data, id) => {
     return (
       <tr key={id}>
@@ -21,7 +21,7 @@ const Test = () => {
         <td>{data.price}</td>
         <td>{data.description}</td>
         <td>{data.quantity}</td>
-        <td>{data.categoryId}</td>
+        <td>{data.category.name}</td>
       </tr>
     );
   });

@@ -47,7 +47,7 @@ class Register extends Component {
   render() {
     const { errors } = this.props;
     return (
-      <div className="container mt-5" style={{ marginBottom: "45px" }}>
+      <div className="container mt-4" style={{ marginBottom: "45px" }}>
         <div className="card pb-3">
           <div className="row">
             <div className="col-md-6">
@@ -58,7 +58,12 @@ class Register extends Component {
               />
             </div>
             <div className="col-md-6">
-              <h1 className="text-center mb-3 mt-3">Login Form</h1>
+              <h1
+                className="text-center mb-3 mt-3"
+                style={{ fontSize: "26px" }}
+              >
+                Register Form
+              </h1>
               <Formik
                 initialValues={{
                   email: "",
