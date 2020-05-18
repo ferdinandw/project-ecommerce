@@ -2,12 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaShoppingCart, FaDollarSign } from "react-icons/fa";
-
+import logo from "../img/trishop.png";
 const Navbar2 = () => {
   return (
     <NavWrapper className="navbar navbar-expend-sm sticky-top navbar navbar-dark px-sm-5">
       <Link className="navbar-brand" to="/">
-        Shop Name
+        <img
+          src={logo}
+          alt="store"
+          className="navbar-brand"
+          style={{ width: "50px" }}
+        />
       </Link>
       <form className="form-inline my-2 my-lg-0">
         <input
