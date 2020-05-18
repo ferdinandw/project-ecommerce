@@ -57,8 +57,8 @@ class Login extends Component {
                 style={{ marginLeft: "35px", width: "80%", height: "300px" }}
               />
             </div>
-            <div className="col-md-6">
-              <h1 className="text-center mb-3 mt-3">Login Form</h1>
+            <div className="col-md-6 d-flex justify-content-center">
+              
               <Formik
                 initialValues={{
                   email: "",
@@ -93,8 +93,8 @@ class Login extends Component {
                     <Form>
                       <div
                         className="container"
-                        style={{ marginLeft: "100px" }}
                       >
+                        <h1 className="text-center mb-3 mt-3">Login Form</h1>
                         <div className="text-center">
                           <div
                             class="card"
@@ -106,19 +106,19 @@ class Login extends Component {
                           >
                             <div class="card-body" style={{ width: "" }}>
                               <Field
-                                placeholder="email"
+                                placeholder="Email"
                                 type="email"
                                 name="email"
-                                className={`${errors.email && touched.email}`}
+                                className={`${errors.email && touched.email} form-control`}
                               />
                               <p />
                               <Field
-                                placeholder="password"
+                                placeholder="Password"
                                 type="password"
                                 name="password"
                                 className={`${
                                   errors.password && touched.password
-                                }`}
+                                } form-control`}
                               />
                               <p />
                               <button
