@@ -11,7 +11,7 @@ const Navbar2 = () => {
           src={logo}
           alt="store"
           className="navbar-brand"
-          style={{ width: "50px" }}
+          style={{ width: "auto", height: "50px" }}
         />
       </Link>
       <form className="form-inline my-2 my-lg-0">
