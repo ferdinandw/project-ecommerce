@@ -45,7 +45,7 @@ const Detail = (props) => {
             />
             <h4>{data.name}</h4>
             <h5>{data.price}</h5>
-            <h6>{data.quantity}</h6>
+            <h6>{data.quantity}</h6>  
             </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>

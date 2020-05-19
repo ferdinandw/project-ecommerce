@@ -146,9 +146,4 @@ export default Penjualan;
     Login
   </button>
 </form>
-<<<<<<< HEAD
-</div> */
-
-=======
 </div> */}
->>>>>>> f1251346ed7e9c072854789508be0132327a1650
