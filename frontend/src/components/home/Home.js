@@ -59,7 +59,7 @@ import { Link } from "react-router-dom";
 import Detail from "./../detail/detail";
 import { getItem } from "./../actioncreators/Item";
 // import Axios from "axios";
-import "./home.css";
+// import "./home.css";
 
 const Home = (props) => {
   useEffect(() => {
@@ -71,12 +71,10 @@ const Home = (props) => {
   console.log(props);
   const itemList = props.data.map((item) => {
     return (
-      <div className="col-md-4 col-sm-12 my-2 pt-0 mt-0">
+      <div className="col-md-4 col-sm-12 my-2">
         <div className="card" key={item.id}>
           <img src={item.imageUrl} alt={item.name} className="card-img-top" />
-          <h4 className="card-title" style={{ textAlign: "center" }}>
-            {item.name}
-          </h4>
+          <h4 className="card-title">{item.name}</h4>
           <div className="card-content">
             <p>{item.description}</p>
             <p>

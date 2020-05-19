@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Detail from "./../detail/detail";
+import "./item.css";
 const Test = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -21,9 +22,7 @@ const Test = () => {
             alt={data.name}
             className="card-img-top"
           />
-          <h4 className="card-title" style={{ textAlign: "center" }}>
-            {data.name}
-          </h4>
+          <h4 className="card-title">{data.name}</h4>
           <div className="card-content">
             <p>{data.description}</p>
             <p>
@@ -40,9 +39,9 @@ const Test = () => {
     );
   });
   return (
-    <div className="container pt-5">
+    <div className="container pt-4">
       <h3 className="text-center">Our Items</h3>
-      <hr className="mb-4" style={{ border: "1px solid red", width: "80px" }} />
+      <hr className="hr mb-4" />
       <div className="row">{showData}</div>
     </div>
   );
