@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Detail from "./../detail/detail";
+import "./item.css";
 const Test = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -9,17 +10,19 @@ const Test = () => {
       setData(res.data);
     });
   }, []);
-  const testimage = "https://i.imgur.com/tq4h23x.jpg";
+  // const testimage = "https://i.imgur.com/tq4h23x.jpg";
 
   const showData = data.map((data, id) => {
-   const URL = "http://3.136.102.205/";
+    const URL = "http://3.136.102.205/";
     return (
-      <div className="col-md-4 col-sm-12 my-2 mt-5 pt-2">
+      <div className="col-md-3 col-sm-12 my-2 ">
         <div className="card" key={id}>
-          <img src={`${URL}${data.imageUrl}`} alt={data.name} className="card-img-top" />
-          <h4 className="card-title" style={{ textAlign: "center" }}>
-            {data.name}
-          </h4>
+          <img
+            src={`${URL}${data.imageUrl}`}
+            alt={data.name}
+            className="card-img-top"
+          />
+          <h4 className="card-title">{data.name}</h4>
           <div className="card-content">
             <p>{data.description}</p>
             <p>
@@ -36,8 +39,9 @@ const Test = () => {
     );
   });
   return (
-    <div className="container">
-      <h3 className="center">Our items</h3>
+    <div className="container pt-4">
+      <h3 className="text-center">Our Items</h3>
+      <hr className="hr mb-4" />
       <div className="row">{showData}</div>
     </div>
   );
