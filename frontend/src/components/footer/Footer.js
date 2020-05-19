@@ -100,8 +100,8 @@ export default class Footer extends Component {
 }
 
 const FooterWrapper = styled.nav`
-  background: #00a8cc;
-  color: white;
+  background: #bdbdbd;
+  color: black;
   padding-top: 2px;
   text-align: center;
   font-family: "Crimson Pro", serif;
