@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import {Button,Modal} from 'react-bootstrap'
-import { connect } from 'react-redux'
-import {addToCart} from './../actioncreators/cart'
+// import { connect } from 'react-redux'
+// import {addToCart} from './../actioncreators/cart'
 import axios from 'axios'
 
 const Detail = (props) => {
@@ -18,7 +18,7 @@ const Detail = (props) => {
       setData(res.data);
     });
   }, []);
-  const testimage = "https://i.imgur.com/tq4h23x.jpg"
+  // const testimage = "https://i.imgur.com/tq4h23x.jpg"
 
     const [show, setShow] = useState(false);
   
