@@ -13,7 +13,7 @@ export default class Carousel extends Component {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 2000,
-      arrows: false
+      arrows: false,
     };
     return (
       <div className="pt-2 mb-4">
@@ -29,18 +29,18 @@ export default class Carousel extends Component {
           {/* <div className="col-md-6 col-sm-12 d-flex flex-column size"> */}
           <div className="col-md-6 d-flex flex-column">
             <div>
-            <img
-              src={require("../img/2.png")}
-              alt="Gambar"
-              style={{ height: "250px", width: "100%", marginBottom: "4%" }}
-            />
+              <img
+                src={require("../img/2.png")}
+                alt="Gambar"
+                style={{ height: "250px", width: "100%", marginBottom: "4%" }}
+              />
             </div>
             <div>
-            <img
-              src={require("../img/3.png")}
-              alt="Gambar"
-              style={{ height: "250px", width: "100%" }}
-            />
+              <img
+                src={require("../img/3.png")}
+                alt="Gambar"
+                style={{ height: "190px", width: "100%" }}
+              />
             </div>
           </div>
         </div>
