@@ -5,6 +5,8 @@ import { addToCart } from "./../actioncreators/cart";
 import {connect} from 'react-redux'
 import { Link } from "react-router-dom";
 import "./item.css";
+
+
 const Test = (props) => {
 
   const [data, setData] = useState([]);
@@ -23,7 +25,7 @@ const Test = (props) => {
     const URL = "http://3.136.102.205/";
     return (
       <div className="col-md-3 col-sm-12 my-2 ">
-        <div className="card" key={id}>
+        <div className="card" key={id}> 
           <img
             src={`${URL}${data.imageUrl}`}
             alt={data.name}
