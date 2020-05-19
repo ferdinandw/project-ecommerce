@@ -36,7 +36,7 @@ const Navbar2 = () => {
             <FaDollarSign />
           </Link>
         </ButtonContainer>
-        <button className="btn btn-outline-danger">
+        <button className="btn btn-outline-dark">
           <Link to="/login">Login</Link>
         </button>
       </div>
@@ -45,7 +45,7 @@ const Navbar2 = () => {
 };
 
 const NavWrapper = styled.nav`
-  background: #ffa41b;
+  background: #d7e2e2;
   .nav-link {
     color: var(--mainWhite) !important;
     font-size: 1.3rem;
