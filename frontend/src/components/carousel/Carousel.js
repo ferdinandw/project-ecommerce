@@ -19,7 +19,7 @@ export default class Carousel extends Component {
       <div className="pt-2 mb-4">
         <div className="row mt-3">
           {/* <div className="col-md-6 col-sm-12"> */}
-          <div className="col-md-6">
+          <div className="col-lg-6 col-md-12">
             <Slider {...settings}>
               <img src={require("../img/1.png")} alt="Gambar 1" />
               <img src={require("../img/2.png")} alt="Gambar 2" />
@@ -27,19 +27,19 @@ export default class Carousel extends Component {
             </Slider>
           </div>
           {/* <div className="col-md-6 col-sm-12 d-flex flex-column size"> */}
-          <div className="col-md-6 d-flex flex-column">
-            <div>
+          <div className="col-lg-6"style={{height:"500px"}} >
+            <div className="mb-2 mt-2"style={{height:"50%"}}>
               <img
                 src={require("../img/2.png")}
                 alt="Gambar"
-                style={{ height: "250px", width: "100%", marginBottom: "4%" }}
+                style={{ height: "100%",width: "100%",border: "4px solid #d7e2e2"}}
               />
             </div>
-            <div>
+            <div style={{height:"50%"}}>
               <img
                 src={require("../img/3.png")}
                 alt="Gambar"
-                style={{ height: "250px", width: "100%" }}
+                style={{   height: "100%",width: "100%",border: "4px solid #d7e2e2" }}
               />
             </div>
           </div>
