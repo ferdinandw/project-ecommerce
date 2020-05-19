@@ -6,14 +6,17 @@ import "slick-carousel/slick/slick-theme.css";
 export default class Carousel extends Component {
   render() {
     const settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      arrows: false
     };
     return (
-      <div className="pt-2">
+      <div className="pt-2 mb-4">
         <div className="row mt-3">
           {/* <div className="col-md-6 col-sm-12"> */}
           <div className="col-md-6">
@@ -24,17 +27,21 @@ export default class Carousel extends Component {
             </Slider>
           </div>
           {/* <div className="col-md-6 col-sm-12 d-flex flex-column size"> */}
-          <div className="col-md-6">
+          <div className="col-md-6 d-flex flex-column">
+            <div>
             <img
               src={require("../img/2.png")}
               alt="Gambar"
-              style={{ height: "23%", width: "100%", marginBottom: "5%" }}
+              style={{ height: "250px", width: "100%", marginBottom: "4%" }}
             />
-            {/* <img
+            </div>
+            <div>
+            <img
               src={require("../img/3.png")}
               alt="Gambar"
-              style={{ height: "22%", width: "100%" }}
-            /> */}
+              style={{ height: "250px", width: "100%" }}
+            />
+            </div>
           </div>
         </div>
       </div>

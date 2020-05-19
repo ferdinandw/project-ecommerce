@@ -7,11 +7,14 @@ import "./style.css";
 export default class Carousel extends Component {
   render() {
     const settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 5,
+      slidesToShow: 4,
       slidesToScroll: 5,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed : 2500
     };
     return (
       <div className="container">
