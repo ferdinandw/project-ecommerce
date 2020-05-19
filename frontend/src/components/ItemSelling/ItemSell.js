@@ -122,12 +122,7 @@ const Penjualan = () => {
 
 export default Penjualan;
 
-<<<<<<< HEAD
-
-  /* <div className="container mt-4 mb-4 content">
-=======
 {/* <div className="container mt-4 mb-4 content">
->>>>>>> f1251346ed7e9c072854789508be0132327a1650
 <h1>Sell Your Item Here</h1>
 <form className="mb-4">
   <div class="form-group">

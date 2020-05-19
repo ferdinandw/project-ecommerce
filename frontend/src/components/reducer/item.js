@@ -14,12 +14,9 @@ const Test = (props) => {
       setData(res.data);
     });
   }, []);
-<<<<<<< HEAD
-=======
   const handleClick = (id) => {
     props.addToCart(id);
   };
->>>>>>> f1251346ed7e9c072854789508be0132327a1650
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
 
   const showData = data.map((data, id) => {
