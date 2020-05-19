@@ -9,7 +9,7 @@ const Test = () => {
       setData(res.data);
     });
   }, []);
-  const testimage = "https://i.imgur.com/tq4h23x.jpg";
+  // const testimage = "https://i.imgur.com/tq4h23x.jpg";
 
   const showData = data.map((data, id) => {
    const URL = "http://3.136.102.205/";
