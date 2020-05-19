@@ -45,7 +45,7 @@ const Navbar2 = () => {
 };
 
 const NavWrapper = styled.nav`
-  background: #d7e2e2;
+  background: #8d8d8d;
   .nav-link {
     color: var(--mainWhite) !important;
     font-size: 1.3rem;
@@ -60,7 +60,7 @@ const ButtonContainer = styled.button`
   border: 0.05rem solid var(--lightBlue);
   border-color: ${(props) =>
     props.cart ? "var(--mainYellow)" : "var(--lightBlue)"};
-  color: ${(prop) => (prop.cart ? "var(--mainYellow)" : "var(--lightBlue)")};
+  color: ${(prop) => (prop.cart ? "var(--mainYellow)" : "var(--white)")};
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
   cursor: pointer;
