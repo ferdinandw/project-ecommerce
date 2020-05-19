@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Detail from "./../detail/detail";
 import { addToCart } from "./../actioncreators/cart";
-import {connect} from 'react-redux'
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./item.css";
+import Counter from "./Counter";
 const Test = (props) => {
-
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get("https://api.juliaveronica.com/item/show").then((res) => {
@@ -16,6 +16,7 @@ const Test = (props) => {
   }, []);
   const handleClick = (id) => {
     props.addToCart(id);
+    // isAdd= false
   };
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
 
@@ -37,6 +38,13 @@ const Test = (props) => {
             </p>
           </div>
           <br />
+          <h4 className="product-name">{data.name}</h4>
+          <p className="product-price">{data.price}</p>
+          <Counter
+            quantity={data.quantity}
+            // updateQuantity={this.props.updateQuantity}
+            // resetQuantity={this.resetQuantity}
+          />
           <Detail />
           <button to="/" className="btn btn-outline-dark" onClick={handleClick}>
             <Link to="/cart">Add Item</Link>
@@ -57,11 +65,11 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => {
       dispatch(addToCart(id));
-    }
+    },
   };
 };
 
-export default connect(null,mapDispatchToProps)(Test);
+export default connect(null, mapDispatchToProps)(Test);
 
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
