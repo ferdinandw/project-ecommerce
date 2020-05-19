@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Detail from "./../detail/detail";
-const Test = () => {
+import { addToCart } from "./../actioncreators/cart";
+import {connect} from 'react-redux'
+import { Link } from "react-router-dom";
+import "./item.css";
+const Test = (props) => {
+
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get("https://api.juliaveronica.com/item/show").then((res) => {
@@ -9,17 +14,25 @@ const Test = () => {
       setData(res.data);
     });
   }, []);
+<<<<<<< HEAD
+=======
+  const handleClick = (id) => {
+    props.addToCart(id);
+  };
+>>>>>>> f1251346ed7e9c072854789508be0132327a1650
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
 
   const showData = data.map((data, id) => {
-   const URL = "http://3.136.102.205/";
+    const URL = "http://3.136.102.205/";
     return (
-      <div className="col-md-4 col-sm-12 my-2 mt-5 pt-2">
+      <div className="col-md-3 col-sm-12 my-2 ">
         <div className="card" key={id}>
-          <img src={`${URL}${data.imageUrl}`} alt={data.name} className="card-img-top" />
-          <h4 className="card-title" style={{ textAlign: "center" }}>
-            {data.name}
-          </h4>
+          <img
+            src={`${URL}${data.imageUrl}`}
+            alt={data.name}
+            className="card-img-top"
+          />
+          <h4 className="card-title">{data.name}</h4>
           <div className="card-content">
             <p>{data.description}</p>
             <p>
@@ -28,22 +41,30 @@ const Test = () => {
           </div>
           <br />
           <Detail />
-          {/* <button to="/" className="btn btn-outline-dark" onClick={handleClick}>
+          <button to="/" className="btn btn-outline-dark" onClick={handleClick}>
             <Link to="/cart">Add Item</Link>
-          </button> */}
+          </button>
         </div>
       </div>
     );
   });
   return (
-    <div className="container">
-      <h3 className="center">Our items</h3>
+    <div className="container pt-4">
+      <h3 className="text-center">Our Items</h3>
+      <hr className="hr mb-4" />
       <div className="row">{showData}</div>
     </div>
   );
 };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => {
+      dispatch(addToCart(id));
+    }
+  };
+};
 
-export default Test;
+export default connect(null,mapDispatchToProps)(Test);
 
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";

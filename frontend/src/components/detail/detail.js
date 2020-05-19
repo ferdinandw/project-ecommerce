@@ -18,7 +18,7 @@ const Detail = (props) => {
       setData(res.data);
     });
   }, []);
-  const testimage = "https://i.imgur.com/tq4h23x.jpg"
+  // const testimage = "https://i.imgur.com/tq4h23x.jpg"
 
     const [show, setShow] = useState(false);
   
