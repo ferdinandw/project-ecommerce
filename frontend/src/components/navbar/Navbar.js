@@ -45,7 +45,7 @@ const Navbar2 = () => {
 };
 
 const NavWrapper = styled.nav`
-  background: #8d8d8d;
+  background: rgba(0, 17, 107, 0.7);
   .nav-link {
     color: var(--mainWhite) !important;
     font-size: 1.3rem;
