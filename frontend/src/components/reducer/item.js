@@ -24,11 +24,12 @@ const Test = (props) => {
     const URL = "http://3.136.102.205/";
     return (
       <div className="col-md-3 ">
-        <div className="card" key={id}>
+        <div className="card" style={{ minHeight: "100px" }} key={id}>
           <img
             src={`${URL}${data.imageUrl}`}
             alt={data.name}
             className="card-img-top"
+            style={{height:"140px"}}
           />
           <h4 className="card-title">{data.name}</h4>
           <div className="card-content">

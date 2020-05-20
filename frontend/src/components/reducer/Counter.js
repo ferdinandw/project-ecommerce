@@ -36,7 +36,6 @@ class Counter extends Component {
         >
           +
         </IncrementCounterButton>
-        <p />
         <Button className="reset" onClick={() => this.reset()}>
           Reset
         </Button>
@@ -48,15 +47,13 @@ class Counter extends Component {
 export default Counter;
 
 const DecrementCounterButton = styled.button`
-  text-align: center;
   width: 20px;
   height: auto;
 `;
 const IncrementCounterButton = styled.button`
-  text-align: center;
   width: 20px;
   height: auto;
-  padding-right: 5px;
+  padding-right: 15px;
 `;
 const Button = styled.button`
   background-color: #ff1493;
@@ -71,7 +68,7 @@ const Input = styled.input`
   text-align: center;
   justify-content: space-between;
   width: 5em;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 3px;
+  margin-right: 3px;
   font-size: 16px;
 `;
