@@ -23,12 +23,13 @@ const Test = (props) => {
   const showData = data.map((data, id) => {
     const URL = "http://3.136.102.205/";
     return (
-      <div className="col-md-3 col-sm-12 my-2 ">
-        <div className="card" key={id}>
+      <div className="col-md-3 ">
+        <div className="card" style={{ minHeight: "100px" }} key={id}>
           <img
             src={`${URL}${data.imageUrl}`}
             alt={data.name}
             className="card-img-top"
+            style={{height:"140px"}}
           />
           <h4 className="card-title">{data.name}</h4>
           <div className="card-content">
@@ -37,18 +38,28 @@ const Test = (props) => {
               <b>Price: Rp {data.price}</b>
             </p>
           </div>
-          <br />
-          <h4 className="product-name">{data.name}</h4>
-          <p className="product-price">{data.price}</p>
+          {/* <br /> */}
+          {/* <h4 className="product-name">{data.name}</h4>
+          <p className="product-price">{data.price}</p> */}
           <Counter
             quantity={data.quantity}
             // updateQuantity={this.props.updateQuantity}
             // resetQuantity={this.resetQuantity}
           />
-          <Detail />
-          <button to="/" className="btn btn-outline-dark" onClick={handleClick}>
-            <Link to="/cart">Add Item</Link>
-          </button>
+          <div className="row ">
+            <div className="text-center mb-2">
+              <Detail />
+            </div>
+            <div className="col-md-6">
+              <button
+                to="/"
+                className="btn btn-outline-dark"
+                onClick={handleClick}
+              >
+                <Link to="/cart">Add Item</Link>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );

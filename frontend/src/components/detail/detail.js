@@ -48,7 +48,7 @@ const Detail = (props) => {
             <h6>{data.quantity}</h6>
             </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleClose} >
               Close
             </Button>
             <Button variant="primary" onClick={handleClick}>
@@ -61,7 +61,7 @@ const Detail = (props) => {
     })
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="primary" onClick={handleShow} >
           More Info
         </Button>
         {showDetail}
