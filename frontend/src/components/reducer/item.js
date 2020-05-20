@@ -5,6 +5,7 @@ import { addToCart } from "./../actioncreators/cart";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./item.css";
+import {Button,Modal, Card} from 'react-bootstrap'
 import Counter from "./Counter";
 const Test = (props) => {
   const [data, setData] = useState([]);
@@ -14,51 +15,49 @@ const Test = (props) => {
       setData(res.data);
     });
   }, []);
-  const handleClick = (id) => {
-    props.addToCart(id);
-    // isAdd= false
-  };
+  // const handleClick = (id) => {
+  //   props.addToCart(id);
+  //   // isAdd= false
+  // };
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
 
-  const showData = data.map((data, id) => {
+  const showData = data.map((item, index) => {
     const URL = "http://3.136.102.205/";
     return (
       <div className="col-md-3 ">
-        <div className="card" style={{ minHeight: "100px" }} key={id}>
+        <div className="card" style={{ minHeight: "100px" }} key={index}>
           <img
-            src={`${URL}${data.imageUrl}`}
-            alt={data.name}
+            src={`${URL}${item.imageUrl}`}
+            alt={item.name}
             className="card-img-top"
             style={{height:"140px"}}
           />
-          <h4 className="card-title">{data.name}</h4>
+          <h4 className="card-title">{item.name}</h4>
           <div className="card-content">
-            <p>{data.description}</p>
+            <p>{item.description}</p>
             <p>
-              <b>Price: Rp {data.price}</b>
+              <b>Price: Rp {item.price}</b>
             </p>
           </div>
           {/* <br /> */}
           {/* <h4 className="product-name">{data.name}</h4>
           <p className="product-price">{data.price}</p> */}
-          <Counter
-            quantity={data.quantity}
+          {/* <Counter
+            quantity={item.quantity}
             // updateQuantity={this.props.updateQuantity}
             // resetQuantity={this.resetQuantity}
-          />
-          <div className="row ">
+          /> */}
+          <div className="card-footer">
             <div className="text-center mb-2">
-              <Detail />
+              <Link className="btn btn-primary" to={`/item/${item.id}`}>Detail</Link>
             </div>
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
               <button
-                to="/"
                 className="btn btn-outline-dark"
-                onClick={handleClick}
               >
-                <Link to="/cart">Add Item</Link>
+                cart
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
