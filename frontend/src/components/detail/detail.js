@@ -1,69 +1,59 @@
 import React,{useState, useEffect} from 'react'
-import {Button,Modal} from 'react-bootstrap'
+import {Button,Modal, Card,Container} from 'react-bootstrap'
+import {useParams} from 'react-router-dom'
 // import { connect } from 'react-redux'
 // import {addToCart} from './../actioncreators/cart'
 import axios from 'axios'
 
-const Detail = (props) => {
+const Detail = () => {
+  const {id} = useParams()
   const [data, setData] = useState([]);
-  const testfun = ((id) =>{
+
+  useEffect(() => {
     axios.get(`https://api.juliaveronica.com/item/show/${id}`).then((res) => {
-      console.log(res.data);
-      setData(res.data);
+      
+      const data = res.data
+      // console.log(data)
+      setData(data);
+      
     });
-  }, []);
-  useEffect((id) => {
-    axios.get(`https://api.juliaveronica.com/item/show`).then((res) => {
-      console.log(res.data);
-      setData(res.data);
-    });
-  }, []);
+  },[id]);
   // const testimage = "https://i.imgur.com/tq4h23x.jpg"
 
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
-    const handleShow = (id) => {
+    const handleShow = () => {
       setShow(true)
     };
-    const handleClick = (id) =>{
+    const handleClick = () =>{
       // props.addToCart(id);
       setShow(false)
     }
-    const showDetail = data.map((data, id) => {
+    const showDetail = [data].map((item,index) => {
       const URL = "http://3.136.102.205/";
       return(
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>{data.name}</Modal.Title>
-          </Modal.Header>
-            <Modal.Body>
-            <img key={id}
-            src={`${URL}${data.imageUrl}`}
+        <Container>
+        <Card key={index}>
+          <Card.Header>
+            <Card.Title>{item.name}</Card.Title>
+          </Card.Header>
+            <Card.Body>
+            <Card.Img
+            src={`${URL}${item.imageUrl}`}
             alt="Gambar"
-            style={{ height: "45%", width: "100%", marginBottom: "5%" }}
             />
-            <h4>{data.name}</h4>
-            <h5>{data.price}</h5>
-            <h6>{data.quantity}</h6>
-            </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose} >
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClick}>
-              Add to Cart
-            </Button>
-          </Modal.Footer>
-        </Modal>
-        
+            <h3>{item.name}</h3>
+            <h4>Rp {item.price}</h4>
+            <h5>Remaining Stock : {item.quantity}</h5>
+            <h6>{item.description}</h6>
+            </Card.Body>
+        </Card>
+        </Container>
       )
     })
     return (
       <>
-        <Button variant="primary" onClick={handleShow} >
-          More Info
-        </Button>
         {showDetail}
       </>
     );
