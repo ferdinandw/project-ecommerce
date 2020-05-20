@@ -2,13 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Detail from "./../detail/detail";
 import { addToCart } from "./../actioncreators/cart";
-import {connect} from 'react-redux'
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./item.css";
+<<<<<<< HEAD
 
 
+=======
+import {Button,Modal, Card} from 'react-bootstrap'
+import Counter from "./Counter";
+>>>>>>> 62c4c35c6e475ee1d6f16176ce324fd3eec3aee6
 const Test = (props) => {
-
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get("https://api.juliaveronica.com/item/show").then((res) => {
@@ -16,33 +20,55 @@ const Test = (props) => {
       setData(res.data);
     });
   }, []);
-  const handleClick = (id) => {
-    props.addToCart(id);
-  };
+  // const handleClick = (id) => {
+  //   props.addToCart(id);
+  //   // isAdd= false
+  // };
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
 
-  const showData = data.map((data, id) => {
+  const showData = data.map((item, index) => {
     const URL = "http://3.136.102.205/";
     return (
+<<<<<<< HEAD
       <div className="col-md-3 col-sm-12 my-2 ">
         <div className="card" key={id}> 
+=======
+      <div className="col-md-3 ">
+        <div className="card" style={{ minHeight: "100px" }} key={index}>
+>>>>>>> 62c4c35c6e475ee1d6f16176ce324fd3eec3aee6
           <img
-            src={`${URL}${data.imageUrl}`}
-            alt={data.name}
+            src={`${URL}${item.imageUrl}`}
+            alt={item.name}
             className="card-img-top"
+            style={{height:"140px"}}
           />
-          <h4 className="card-title">{data.name}</h4>
+          <h4 className="card-title">{item.name}</h4>
           <div className="card-content">
-            <p>{data.description}</p>
+            <p>{item.description}</p>
             <p>
-              <b>Price: Rp {data.price}</b>
+              <b>Price: Rp {item.price}</b>
             </p>
           </div>
-          <br />
-          <Detail />
-          <button to="/" className="btn btn-outline-dark" onClick={handleClick}>
-            <Link to="/cart">Add Item</Link>
-          </button>
+          {/* <br /> */}
+          {/* <h4 className="product-name">{data.name}</h4>
+          <p className="product-price">{data.price}</p> */}
+          {/* <Counter
+            quantity={item.quantity}
+            // updateQuantity={this.props.updateQuantity}
+            // resetQuantity={this.resetQuantity}
+          /> */}
+          <div className="card-footer">
+            <div className="text-center mb-2">
+              <Link className="btn btn-primary" to={`/item/${item.id}`}>Detail</Link>
+            </div>
+            {/* <div className="col-md-6">
+              <button
+                className="btn btn-outline-dark"
+              >
+                cart
+              </button>
+            </div> */}
+          </div>
         </div>
       </div>
     );
@@ -59,11 +85,11 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => {
       dispatch(addToCart(id));
-    }
+    },
   };
 };
 
-export default connect(null,mapDispatchToProps)(Test);
+export default connect(null, mapDispatchToProps)(Test);
 
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
