@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Detail from "./../detail/detail";
-import { addToCart } from "./../actioncreators/cart";
+import { beli } from "./../actioncreators/cart";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./item.css";
+import Cartt from './../cart/Test'
 import { Button, Modal, Card } from "react-bootstrap";
 import Counter from "./Counter";
 const Test = (props) => {
@@ -12,7 +13,8 @@ const Test = (props) => {
   useEffect(() => {
     axios.get("https://api.juliaveronica.com/item/show").then((res) => {
       console.log(res.data);
-      setData(res.data);
+      const data = res.data
+      setData(data);
     });
   }, []);
   // const handleClick = (id) => {
@@ -20,6 +22,10 @@ const Test = (props) => {
   //   // isAdd= false
   // };
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
+  // const beli = () => {
+  //   props.beli(data.id)
+  //   console.log(`saya beli ${data.name}`);
+  // }
 
   const showData = data.map((item, index) => {
     const URL = "http://3.136.102.205/";
@@ -51,15 +57,16 @@ const Test = (props) => {
             <div className="text-center">
               <Link
                 className="btn btn-primary"
-                target="_blank"
                 to={`/item/${item.id}`}
               >
                 Detail
               </Link>
             </div>
+            <Cartt key={item.id} cart={item}/>
             {/* <div className="col-md-6">
               <button
                 className="btn btn-outline-dark"
+                onClick={beli}
               >
                 cart
               </button>
@@ -79,9 +86,10 @@ const Test = (props) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => {
-      dispatch(addToCart(id));
-    },
+    beli
+    // addToCart: (id) => {
+    //   dispatch(addToCart(id));
+    // },
   };
 };
 
