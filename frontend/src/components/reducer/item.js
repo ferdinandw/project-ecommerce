@@ -30,11 +30,11 @@ const Test = (props) => {
             src={`${URL}${item.imageUrl}`}
             alt={item.name}
             className="card-img-top"
-            style={{ height: "140px" }}
+            // style={{ height: "200px", width: "100%" }}
           />
           <h4 className="card-title">{item.name}</h4>
           <div className="card-content">
-            <p>{item.description}</p>
+            <p>Remaining Stock : {item.quantity}</p>
             <p>
               <b>Price: Rp {item.price}</b>
             </p>
@@ -49,7 +49,7 @@ const Test = (props) => {
           /> */}
           <div className="card-footer">
             <div className="text-center">
-              <Link className="btn btn-primary" to={`/item/${item.id}`}>
+              <Link className="btn btn-primary" target="_blank" to={`/item/${item.id}`}>
                 Detail
               </Link>
             </div>
@@ -66,7 +66,7 @@ const Test = (props) => {
     );
   });
   return (
-    <div className="container pt-4">
+    <div className="container pt-4 mb-4">
       <h3 className="text-center">Our Items</h3>
       <hr className="hr mb-4" />
       <div className="row">{showData}</div>

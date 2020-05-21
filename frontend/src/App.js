@@ -60,15 +60,16 @@ class App extends Component {
             </Route>
             <Route path="/seller">
               <ItemSell />
-              <Category />
+              {/* <Category /> */}
             </Route>
             <Route path="/cart">
               <Cart />
-              <Category />
+              {/* <Category /> */}
             </Route>
             <Route path="/item/:id">
               <Detail />
-              <Category />
+              <Item/>
+              {/* <Category /> */}
             </Route>
             <Route path="/">
               <Carousel />
