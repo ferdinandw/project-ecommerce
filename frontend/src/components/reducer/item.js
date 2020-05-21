@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Detail from "./../detail/detail";
-import { addToCart } from "./../actioncreators/cart";
+import { beli } from "./../actioncreators/cart";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./item.css";
-import {Button,Modal, Card} from 'react-bootstrap'
+import Cartt from './../cart/Test'
+import { Button, Modal, Card } from "react-bootstrap";
 import Counter from "./Counter";
 const Test = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get("https://api.juliaveronica.com/item/show").then((res) => {
       console.log(res.data);
-      setData(res.data);
+      const data = res.data
+      setData(data);
     });
   }, []);
   // const handleClick = (id) => {
@@ -20,6 +22,10 @@ const Test = (props) => {
   //   // isAdd= false
   // };
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
+  // const beli = () => {
+  //   props.beli(data.id)
+  //   console.log(`saya beli ${data.name}`);
+  // }
 
   const showData = data.map((item, index) => {
     const URL = "http://3.136.102.205/";
@@ -30,11 +36,11 @@ const Test = (props) => {
             src={`${URL}${item.imageUrl}`}
             alt={item.name}
             className="card-img-top"
-            style={{height:"140px"}}
+            // style={{ height: "200px", width: "100%" }}
           />
           <h4 className="card-title">{item.name}</h4>
           <div className="card-content">
-            <p>{item.description}</p>
+            <p>Remaining Stock : {item.quantity}</p>
             <p>
               <b>Price: Rp {item.price}</b>
             </p>
@@ -48,12 +54,16 @@ const Test = (props) => {
             // resetQuantity={this.resetQuantity}
           /> */}
           <div className="card-footer">
-            <div className="text-center mb-2">
-              <Link className="btn btn-primary" to={`/item/${item.id}`}>Detail</Link>
+            <div className="text-center">
+              <Link className="btn btn-primary" target="_blank" to={`/item/${item.id}`}>
+                Detail
+              </Link>
             </div>
+            <Cartt key={item.id} cart={item}/>
             {/* <div className="col-md-6">
               <button
                 className="btn btn-outline-dark"
+                onClick={beli}
               >
                 cart
               </button>
@@ -64,7 +74,7 @@ const Test = (props) => {
     );
   });
   return (
-    <div className="container pt-4">
+    <div className="container pt-4 mb-4">
       <h3 className="text-center">Our Items</h3>
       <hr className="hr mb-4" />
       <div className="row">{showData}</div>
@@ -73,9 +83,10 @@ const Test = (props) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => {
-      dispatch(addToCart(id));
-    },
+    beli
+    // addToCart: (id) => {
+    //   dispatch(addToCart(id));
+    // },
   };
 };
 
