@@ -32,11 +32,11 @@ const Test = (props) => {
             src={`${URL}${item.imageUrl}`}
             alt={item.name}
             className="card-img-top"
-            style={{ height: "140px" }}
+            // style={{ height: "200px", width: "100%" }}
           />
           <h4 className="card-title">{item.name}</h4>
           <div className="card-content">
-            <p>{item.description}</p>
+            <p>Remaining Stock : {item.quantity}</p>
             <p>
               <b>Price: Rp {item.price}</b>
             </p>

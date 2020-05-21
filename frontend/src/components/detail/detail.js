@@ -35,11 +35,11 @@ const Detail = () => {
       <Container className="mt-4 mb-4" fluid>
         <Card key={index}>
           <Row>
-            <Col md={6}>
+            <Col md={6} className="d-flex justify-content-center">
             <Image
               src={`${URL}${item.imageUrl}`}
               alt="Gambar"
-              fluid
+              style={{height: "400px", justifyContent: "center"}}
             />
             </Col>
             <Col md={6} className="flex flex-row">
@@ -47,7 +47,7 @@ const Detail = () => {
               <h3>Rp {data.price}</h3>
               <h6>Remaining Stock : {data.quantity}</h6>
               <p>{data.description}</p>
-              <div className="pt-4 mt-12" style={{marginTop: "200px"}}>
+              <div className="mt-4">
               <button className="mr-4 btn btn-outline-light btn-secondary">Add To Cart</button>
               <button className="btn btn-primary">Buy Now</button>
               </div>
