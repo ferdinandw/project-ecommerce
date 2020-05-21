@@ -51,7 +51,7 @@ const Test = (props) => {
           /> */}
           <div className="card-footer">
             <div className="text-center">
-              <Link className="btn btn-primary" to={`/item/${item.id}`}>
+              <Link className="btn btn-primary" target="_blank" to={`/item/${item.id}`}>
                 Detail
               </Link>
             </div>
@@ -68,7 +68,7 @@ const Test = (props) => {
     );
   });
   return (
-    <div className="container pt-4">
+    <div className="container pt-4 mb-4">
       <h3 className="text-center">Our Items</h3>
       <hr className="hr mb-4" />
       <div className="row">{showData}</div>

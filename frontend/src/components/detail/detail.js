@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Card, Container } from "react-bootstrap";
+import { Button, Modal, Card, Container, Row, Col, Image } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 // import { connect } from 'react-redux'
 // import {addToCart} from './../actioncreators/cart'
@@ -32,51 +32,40 @@ const Detail = () => {
   const showDetail = [data].map((item, index) => {
     const URL = "http://3.136.102.205/";
     return (
-      <Container className="mt-4">
+      <Container className="mt-4 mb-4" fluid>
         <Card key={index}>
-          <Card.Header>
-            <Card.Title>{item.name}</Card.Title>
-          </Card.Header>
-          <Card.Body>
-            <Card.Img
-              className="detail-img mb-4"
+          <Row>
+            <Col md={6}>
+            <Image
               src={`${URL}${item.imageUrl}`}
               alt="Gambar"
+              fluid
             />
-
-            <h4>{data.name}</h4>
-            <h5>{data.price}</h5>
-            <h6>{data.quantity}</h6>  
-            </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClick}>
-              Add to Cart
-            </Button>
-          </Modal.Footer>
-        </Modal>
-            <h3>{item.name}</h3>
-            <h4>Rp {item.price}</h4>
-            <h5>Remaining Stock : {item.quantity}</h5>
-            <h6>{item.description}</h6>
-          </Card.Body>
+            </Col>
+            <Col md={6} className="flex flex-row">
+              <h2>{data.name}</h2>
+              <h3>Rp {data.price}</h3>
+              <h6>Remaining Stock : {data.quantity}</h6>
+              <p>{data.description}</p>
+              <div className="pt-4 mt-12" style={{marginTop: "200px"}}>
+              <button className="mr-4 btn btn-outline-light btn-secondary">Add To Cart</button>
+              <button className="btn btn-primary">Buy Now</button>
+              </div>
+              
+            </Col>
+          </Row>
         </Card>
-
         </Container>
 
       )
     })
     return (
-      <>
+      <div>
         {showDetail}
-      </>
-      </Container>
+      </div>
     );
-  });
-  return <>{showDetail}</>;
-};
+  }
+
 // const mapStateToProps = (state)=>{
 //   return {
 //     items: state.items
