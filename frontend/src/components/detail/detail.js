@@ -43,35 +43,12 @@ const Detail = () => {
               src={`${URL}${item.imageUrl}`}
               alt="Gambar"
             />
-
-            <h4>{data.name}</h4>
-            <h5>{data.price}</h5>
-            <h6>{data.quantity}</h6>  
-            </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClick}>
-              Add to Cart
-            </Button>
-          </Modal.Footer>
-        </Modal>
             <h3>{item.name}</h3>
             <h4>Rp {item.price}</h4>
             <h5>Remaining Stock : {item.quantity}</h5>
             <h6>{item.description}</h6>
           </Card.Body>
         </Card>
-
-        </Container>
-
-      )
-    })
-    return (
-      <>
-        {showDetail}
-      </>
       </Container>
     );
   });

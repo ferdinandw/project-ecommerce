@@ -5,9 +5,8 @@ import { addToCart } from "./../actioncreators/cart";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./item.css";
-
 import { Button, Modal, Card } from "react-bootstrap";
-
+import Counter from "./Counter";
 const Test = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -27,7 +26,6 @@ const Test = (props) => {
     return (
       <div className="col-md-3 ">
         <div className="card" style={{ minHeight: "100px" }} key={index}>
-
           <img
             src={`${URL}${item.imageUrl}`}
             alt={item.name}
