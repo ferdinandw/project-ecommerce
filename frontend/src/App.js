@@ -13,13 +13,15 @@ import ItemSell from "./components/ItemSelling/ItemSell";
 import Login from "./components/login/Login2";
 import MiniCarousel from "./components/carousel/MiniCarousel";
 import Register from "./components/register/Register";
-// import cartReducer from "./components/reducer/CartReducer";
+import cartReducer from "./components/reducer/CartReducer";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/authToken";
 import store from "./store/store";
 import { setCurrentUser, logoutUser } from "./components/actioncreators/auth";
 import { Provider } from "react-redux";
-// import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import localforage from 'localforage'
+import thunk from 'redux-thunk';
 // import TesSearch from "./components/searchFilter/TesSearch";
 import Item from "./components/reducer/item";
 // Check for token to keep user logged in
@@ -40,8 +42,19 @@ if (localStorage.jwtToken) {
     window.location.href = "./signin";
   }
 }
+try {
+  const fun = async () => {
+    console.log('halo');
+    const val = await localforage.getItem('keranjang');
+    window.dataKeranjang = val;
+  }
+  fun()
 
-// const storage = createStore(cartReducer);
+}catch{
+  console.error('belum bisa pakai localforage')
+}
+
+// const storage = createStore(cartReducer , applyMiddleware(thunk));
 class App extends Component {
   render() {
     return (
