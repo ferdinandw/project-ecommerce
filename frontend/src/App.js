@@ -8,18 +8,18 @@ import Carousel from "./components/carousel/Carousel";
 import Cart from "./components/cart/Cart";
 import Detail from './components/detail/detail'
 import Footer from "./components/footer/Footer";
-import Home from "./components/home/Home";
+// import Home from "./components/home/Home";
 import ItemSell from "./components/ItemSelling/ItemSell";
 import Login from "./components/login/Login2";
 import MiniCarousel from "./components/carousel/MiniCarousel";
 import Register from "./components/register/Register";
-import cartReducer from "./components/reducer/CartReducer";
+// import cartReducer from "./components/reducer/CartReducer";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/authToken";
 import store from "./store/store";
 import { setCurrentUser, logoutUser } from "./components/actioncreators/auth";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+// import { createStore } from "redux";
 // import TesSearch from "./components/searchFilter/TesSearch";
 import Item from "./components/reducer/item";
 // Check for token to keep user logged in
