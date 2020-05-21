@@ -4,125 +4,61 @@ import axios from "axios";
 
 const Penjualan = () => {
   return (
-    <div className="wrapper mt-2 pt-3">
-      <Formik
-        initialValues={{
-          name: "",
-          price: "",
-          description: "",
-          quantity: "",
-          category: "",
-          image: "",
-        }}
-        validate={(values) => {
-          let errors = {};
-          if (values.name === "") {
-            errors.name = "Name is required";
-          }
-          if (values.price === "") {
-            errors.price = "Price is required";
-          }
-          if (values.description === "") {
-            errors.description = "Description is required";
-          }
-          if (values.quantity === "") {
-            errors.quantity = "Quantity is required";
-          }
-          if (values.category === "") {
-            errors.category = "Category is required";
-          }
-          if (values.image === "") {
-            errors.image = "Image is required";
-          }
-          return errors;
-        }}
-        onSubmit={(values, { setSubmitting }) => {
-          axios.post("http://localhost:8000/item/create", {
-            values,
-          });
-          alert("Form is Validated!");
-          setSubmitting(false);
-        }}
-      >
-        {({ touched, errors, isSubmitting }) => (
-          <Form>
-            <div className="container">
-              <div className="row justify-content-md-center">
-                <div class="col-md-4 ">
-                  <div class="card text-center pt-2">
-                    <h1
-                      className="text-center text-primary"
-                      style={{ fontSize: "25px" }}
-                    >
-                      Sells Your Items
-                    </h1>
-                    <div class="card-body">
-                      <Field
-                        placeholder="Name"
-                        type="name"
-                        name="name"
-                        className={`${errors.name && touched.name}`}
-                      />
-                      <p />
-                      <Field
-                        placeholder="Price"
-                        type="number"
-                        name="price"
-                        className={`${errors.price && touched.price}`}
-                      />
-                      <p />
-                      <Field
-                        placeholder="Description"
-                        type="name"
-                        name="description"
-                        className={`${
-                          errors.description && touched.description
-                        }`}
-                      />
-                      <p />
-                      <Field
-                        placeholder="Quantity"
-                        type="number"
-                        name="quantity"
-                        className={`${errors.quantity && touched.quantity}`}
-                      />
-                      <p />
-                      <Field
-                        placeholder="Category"
-                        type="number"
-                        name="name"
-                        className={`${errors.category && touched.category}`}
-                      />
-                      <p />
-                      <Field
-                        placeholder="Image"
-                        type="name"
-                        name="name"
-                        className={`${errors.image && touched.image}`}
-                      />
-                      <p />
-                      <button
-                        type="submit"
-                        className="btn btn-outline-primary justify-content-center"
-                      >
-                        Submit
-                      </button>
-                      {isSubmitting}
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div className="wrapper mt-2 pt-3 mb-2 d-flex justify-content-center">
+      <div className="card" style={{ width: "30rem" }}>
+        <h1 className="text-center">Create Items</h1>
+        <div className="card-body">
+          <form>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">Email address</label>
+              <input
+                type="email"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+              />
             </div>
-          </Form>
-        )}
-      </Formik>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlSelect1">Example select</label>
+              <select className="form-control" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">
+                Description
+              </label>
+              <textarea
+                className="form-control"
+                id="exampleFormControlTextarea1"
+                rows={3}
+                defaultValue={""}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlInput1">Email address</label>
+              <input
+                type="email"
+                className="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Penjualan;
 
-{/* <div className="container mt-4 mb-4 content">
+{
+  /* <div className="container mt-4 mb-4 content">
 <h1>Sell Your Item Here</h1>
 <form className="mb-4">
   <div class="form-group">
@@ -146,4 +82,5 @@ export default Penjualan;
     Login
   </button>
 </form>
-</div> */}
+</div> */
+}
