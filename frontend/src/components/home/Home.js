@@ -54,12 +54,9 @@
 
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-// import { addToCart } from "./../actioncreators/cart";
 import { Link } from "react-router-dom";
 import Detail from "./../detail/detail";
 import { getItem } from "./../actioncreators/Item";
-// import Axios from "axios";
-// import "./home.css";
 
 const Home = (props) => {
   useEffect(() => {
@@ -106,10 +103,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    // addToCart: (id) => {
-    //   dispatch(addToCart(id));
-    // },
-    getItem,
+    getItem
   };
 };
 

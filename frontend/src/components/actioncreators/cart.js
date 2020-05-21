@@ -16,12 +16,12 @@ export const beli = ((idBarang, namaBarang, hargaBarang, imgBarang) => {
             let data = await localforage.getItem('keranjang');
             data = data || [];
             const barangSudahAda = data.find(item => {
-                return item.id == idBarang;
+                return item.id === idBarang;
             });
 
             if (barangSudahAda){
                 data = data.map (item => {
-                    if (item.id == idBarang){
+                    if (item.id === idBarang){
                         item.jumlah += 1
                     }
                     return item;

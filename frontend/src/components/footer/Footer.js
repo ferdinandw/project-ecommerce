@@ -12,10 +12,10 @@ import styled from "styled-components";
 export default class Footer extends Component {
   render() {
     return (
-      <FooterWrapper>
-        <div className="row mt-4 mb-4">
+      <FooterWrapper >
+        <div className="row mt-4 pb-4">
           <div className="col-4">
-            <h3 className="mb-3">Payment</h3>
+            <h3 className="font-weight-bold mb-3">Payment</h3>
             <img
               className="payment"
               src={require("../img/bca.jpeg")}
@@ -58,7 +58,7 @@ export default class Footer extends Component {
             />
           </div>
           <div className="col-4 ">
-            <h3 className="mb-3">Delivery</h3>
+            <h3 className="font-weight-bold mb-3">Delivery</h3>
             <img
               className="delivery mt-2"
               src={require("../img/jne.jpeg")}
@@ -81,7 +81,7 @@ export default class Footer extends Component {
             />
           </div>
           <div className="col-4">
-            <h3 className="mb-3 space-between ml-4">Follow Us</h3>
+            <h3 className="font-weight-bold mb-3 space-between ml-4">Follow Us</h3>
             <div style={{ color: "blue" }}>
               <FaFacebook size={40} color="blue" />
               <FaInstagram size={40} color="red" />
@@ -91,18 +91,20 @@ export default class Footer extends Component {
             </div>
           </div>
         </div>
+        <div className="pt-2 pb-2" style={{backgroundColor:"#aab6fe"}}>
         <h5 className="text-center">
           &copy; Copyright by Ecommerce-Project 2020{" "}
         </h5>
+        </div>
       </FooterWrapper>
     );
   }
 }
 
 const FooterWrapper = styled.nav`
-  background: #bdbdbd;
+  background: #d1d9ff;
   color: black;
-  padding-top: 2px;
+  padding-top: 4px;
   text-align: center;
   font-family: "Crimson Pro", serif;
 `;
