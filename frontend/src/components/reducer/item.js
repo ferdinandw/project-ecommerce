@@ -30,7 +30,7 @@ const Test = (props) => {
   const showData = data.map((item, index) => {
     const URL = "http://3.136.102.205/";
     return (
-      <div className="col-md-3 ">
+      <div className="col-md-3 mb-3">
         <div className="card" style={{ minHeight: "100px" }} key={index}>
           <img
             src={`${URL}${item.imageUrl}`}
@@ -55,7 +55,11 @@ const Test = (props) => {
           /> */}
           <div className="card-footer">
             <div className="text-center">
-              <Link className="btn btn-primary" target="_blank" to={`/item/${item.id}`}>
+              <Link
+                className="btn btn-primary"
+                target="_blank"
+                to={`/item/${item.id}`}
+              >
                 Detail
               </Link>
             </div>

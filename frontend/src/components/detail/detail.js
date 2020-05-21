@@ -52,7 +52,6 @@ const Detail = () => {
               <button className="mr-4 btn btn-outline-light btn-secondary">Add To Cart</button>
               <button className="btn btn-primary">Buy Now</button>
               </div>
-              
             </Col>
           </Row>
         </Card>
