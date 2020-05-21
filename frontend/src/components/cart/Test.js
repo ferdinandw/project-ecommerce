@@ -12,7 +12,7 @@ const Item = (props) => {
     }
     return (
         <div>
-            <div><button onClick={beli}>Beli</button></div>
+            <button className="btn btn-primary" onClick={beli}>Add To Cart</button>
         </div>
     )
 }
