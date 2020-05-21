@@ -6,6 +6,7 @@ import Navbar from "./components/navbar/Navbar";
 import Category from "./components/category/Category";
 import Carousel from "./components/carousel/Carousel";
 import Cart from "./components/cart/Cart";
+import Detail from './components/detail/detail'
 import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
 import ItemSell from "./components/ItemSelling/ItemSell";
@@ -63,6 +64,10 @@ class App extends Component {
             </Route>
             <Route path="/cart">
               <Cart />
+              <Category />
+            </Route>
+            <Route path="/item/:id">
+              <Detail />
               <Category />
             </Route>
             <Route path="/">
