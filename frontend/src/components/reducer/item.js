@@ -5,13 +5,9 @@ import { addToCart } from "./../actioncreators/cart";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./item.css";
-<<<<<<< HEAD
 
+import { Button, Modal, Card } from "react-bootstrap";
 
-=======
-import {Button,Modal, Card} from 'react-bootstrap'
-import Counter from "./Counter";
->>>>>>> 62c4c35c6e475ee1d6f16176ce324fd3eec3aee6
 const Test = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -29,18 +25,14 @@ const Test = (props) => {
   const showData = data.map((item, index) => {
     const URL = "http://3.136.102.205/";
     return (
-<<<<<<< HEAD
-      <div className="col-md-3 col-sm-12 my-2 ">
-        <div className="card" key={id}> 
-=======
       <div className="col-md-3 ">
         <div className="card" style={{ minHeight: "100px" }} key={index}>
->>>>>>> 62c4c35c6e475ee1d6f16176ce324fd3eec3aee6
+
           <img
             src={`${URL}${item.imageUrl}`}
             alt={item.name}
             className="card-img-top"
-            style={{height:"140px"}}
+            style={{ height: "140px" }}
           />
           <h4 className="card-title">{item.name}</h4>
           <div className="card-content">
@@ -58,8 +50,10 @@ const Test = (props) => {
             // resetQuantity={this.resetQuantity}
           /> */}
           <div className="card-footer">
-            <div className="text-center mb-2">
-              <Link className="btn btn-primary" to={`/item/${item.id}`}>Detail</Link>
+            <div className="text-center">
+              <Link className="btn btn-primary" to={`/item/${item.id}`}>
+                Detail
+              </Link>
             </div>
             {/* <div className="col-md-6">
               <button

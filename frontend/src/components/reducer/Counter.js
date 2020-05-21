@@ -29,7 +29,7 @@ class Counter extends Component {
         >
           -
         </DecrementCounterButton>
-        <Input type="text" className="" value={this.state.count}></Input>
+        <Input type="text" className="mt-3" value={this.state.count}></Input>
         <IncrementCounterButton
           className="btn btn-success btn-sm"
           onClick={() => this.IncreamentItem()}
@@ -46,6 +46,7 @@ class Counter extends Component {
 }
 export default Counter;
 
+// CSS (package: styled-components).
 const DecrementCounterButton = styled.button`
   width: 20px;
   height: auto;

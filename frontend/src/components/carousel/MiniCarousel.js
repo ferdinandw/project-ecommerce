@@ -14,24 +14,24 @@ export default class Carousel extends Component {
       slidesToScroll: 5,
       arrows: false,
       autoplay: true,
-      autoplaySpeed : 2500
+      autoplaySpeed: 2500,
     };
     return (
       <div className="container">
         <Slider {...settings}>
-          <img src={require("../img/2.png")} alt="Gambar 1" />
-          <img src={require("../img/1.png")} alt="Gambar 1" />
-          <img src={require("../img/3.png")} alt="Gambar 1" />
-          <img src={require("../img/2.png")} alt="Gambar 1" />
-          <img src={require("../img/3.png")} alt="Gambar 1" />
-          <img src={require("../img/2.png")} alt="Gambar 1" />
-          <img src={require("../img/1.png")} alt="Gambar 1" />
-          <img src={require("../img/1.png")} alt="Gambar 1" />
-          <img src={require("../img/2.png")} alt="Gambar 1" />
-          <img src={require("../img/3.png")} alt="Gambar 1" />
-          <img src={require("../img/1.png")} alt="Gambar 1" />
-          <img src={require("../img/2.png")} alt="Gambar 1" />
-          <img src={require("../img/3.png")} alt="Gambar 1" />
+          <img src={require("../img/2.png")} alt="Gambar 1"/>
+          <img src={require("../img/1.png")} alt="Gambar 1"/>
+          <img src={require("../img/3.png")} alt="Gambar 1"/>
+          <img src={require("../img/2.png")} alt="Gambar 1"/>
+          <img src={require("../img/3.png")} alt="Gambar 1"/>
+          <img src={require("../img/2.png")} alt="Gambar 1"/>
+          <img src={require("../img/1.png")} alt="Gambar 1"/>
+          <img src={require("../img/1.png")} alt="Gambar 1"/>
+          <img src={require("../img/2.png")} alt="Gambar 1"/>
+          <img src={require("../img/3.png")} alt="Gambar 1"/>
+          <img src={require("../img/1.png")} alt="Gambar 1"/>
+          <img src={require("../img/2.png")} alt="Gambar 1"/>
+          <img src={require("../img/3.png")} alt="Gambar 1"/>
         </Slider>
       </div>
     );
