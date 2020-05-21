@@ -19,6 +19,9 @@ import setAuthToken from "./utils/authToken";
 import store from "./store/store";
 import { setCurrentUser, logoutUser } from "./components/actioncreators/auth";
 import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import localforage from 'localforage'
+import thunk from 'redux-thunk';
 import { createStore } from "redux";
 // import TesSearch from "./components/searchFilter/TesSearch";
 import Item from "./components/reducer/item";
@@ -40,8 +43,19 @@ if (localStorage.jwtToken) {
     window.location.href = "./signin";
   }
 }
+try {
+  const fun = async () => {
+    console.log('halo');
+    const val = await localforage.getItem('keranjang');
+    window.dataKeranjang = val;
+  }
+  fun()
 
-// const storage = createStore(cartReducer);
+}catch{
+  console.error('belum bisa pakai localforage')
+}
+
+// const storage = createStore(cartReducer , applyMiddleware(thunk));
 class App extends Component {
   render() {
     return (
