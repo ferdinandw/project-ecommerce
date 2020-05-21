@@ -41,6 +41,7 @@ const Detail = () => {
               alt="Gambar"
               style={{height: "400px", justifyContent: "center"}}
             />
+
             </Col>
             <Col md={6} className="flex flex-row">
               <h2>{data.name}</h2>
