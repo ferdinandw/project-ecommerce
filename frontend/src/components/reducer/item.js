@@ -57,7 +57,6 @@ const Test = (props) => {
             <div className="text-center">
               <Link
                 className="btn btn-primary"
-                target="_blank"
                 to={`/item/${item.id}`}
               >
                 Detail
