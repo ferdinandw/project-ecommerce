@@ -13,6 +13,7 @@ import ItemSell from "./components/ItemSelling/ItemSell";
 import Login from "./components/login/Login2";
 import MiniCarousel from "./components/carousel/MiniCarousel";
 import Register from "./components/register/Register";
+// import Form from './components/form';
 import cartReducer from "./components/reducer/CartReducer";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/authToken";
@@ -22,7 +23,6 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import localforage from 'localforage'
 import thunk from 'redux-thunk';
-import { createStore } from "redux";
 // import TesSearch from "./components/searchFilter/TesSearch";
 import Item from "./components/reducer/item";
 // Check for token to keep user logged in
