@@ -65,8 +65,10 @@
 
 import React, { useEffect, useState }  from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom'
 import localforage from 'localforage';
 import axios from 'axios';
+import Counter from './../reducer/Counter'
 
 const Index = (props) => {
     const [data, setData] = useState([]);
@@ -80,10 +82,8 @@ const Index = (props) => {
     },  [])
 
     const checkout = () => {
-
-        axios.post('http://localhost:3000/keranjang', { pembelian : data })
+        axios.post('https://api.juliaveronica.com/order/create', { pembelian : data })
             .then((response) => {
-
                 setData([]);
                 localforage.setItem('keranjang', []);
             })
@@ -92,20 +92,28 @@ const Index = (props) => {
 
     return (
         <div>
-            <h1>Keranjang</h1>
-            <div>
+            <h1>Your Cart</h1>
+            <div className="container">
                 {data.map( (item) => {
                     return (
-                        <div>
-                          <h1>Your Cart</h1>
-                          <img src={`${URL}${item.imageUrl}`} alt={item.name} style={{height : "200px"}} />
-                          <h2>Nama : {item.name}</h2>
-                          <h3>Price : Rp {item.price}</h3>
-                          {/* Sebuah barang dengan id {item.id} dengan jumlah {item.jumlah} nama {item.name} */}
+                        <div className="jumbotron">
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <img src={`${URL}${item.imageUrl}`} alt={item.name} style={{height : "200px"}} />
+                                </div>
+                                <div className="col-md-6">
+                                    <h2>Nama : {item.name}</h2>
+                                    <h3>Price : Rp {item.price}</h3>
+                                    <Counter/>
+                                </div>
+                            </div>
+                            
                         </div>
                     )
                 })}
-                <button onClick={checkout}>check out</button>
+                <div className="d-flex justify-content-end">
+                    <Link className="btn btn-primary" onClick={checkout} to="/checkout">Checkout</Link>
+                </div>
             </div>
         </div>
     )

@@ -9,6 +9,7 @@ const Item = (props) => {
     const beli = () => {
         props.beli(cart.id, cart.name, cart.price, cart.imageUrl);
         console.log(`saya beli ${cart.name}`)
+        window.alert('Item Added To Cart')
     }
     return (
         <div>
