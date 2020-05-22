@@ -45,8 +45,8 @@ export default class ItemSell extends Component {
             setSubmitting(false);
           }}
         >
-          {({ touched, errors, isSubmitting }) => (
-            <Form>
+          {({ touched, errors, isSubmitting, onSubmit }) => (
+            <Form onSubmit={onSubmit}>
               <div className="container mt-3 mb-3">
                 <div className="row justify-content-md-center">
                   <div className="col-md-4">
