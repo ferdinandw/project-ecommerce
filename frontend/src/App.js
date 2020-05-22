@@ -12,7 +12,7 @@ import Login from "./components/login/Login2";
 import MiniCarousel from "./components/carousel/MiniCarousel";
 import Register from "./components/register/Register";
 import Tabel from './components/form/Form';
-
+import Checkout from './components/checkout/Checkout'
 import ScrollTop from "./components/scrollTop";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/authToken";
@@ -23,7 +23,10 @@ import localforage from "localforage";
 import PrivateRoute from "./config/privateRoute";
 
 // import TesSearch from "./components/searchFilter/TesSearch";
-// import Item from "./components/reducer/item";
+
+import Item from "./components/reducer/item";
+import { Tab } from "react-bootstrap";
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -64,9 +67,14 @@ class App extends Component {
               <Navbar />
             </div>
             <div>
+            <Switch>
               {/* <TesSearch /> */}
               <Route path="/login">
                 <Login />
+              </Route>
+              <Route path="/checkout">
+                {/* <Checkout/> */}
+                <Tabel/>
               </Route>
               <Route path="/register">
                 <Register />
@@ -85,10 +93,13 @@ class App extends Component {
                 <MiniCarousel />
                 {/* <Item /> */}
               </Route>
+              </Switch>
             </div>
+
             <Switch>
               {/* <PrivateRoute exact path="/details/detail/:id" component={Item} /> */}
             </Switch>
+
             <Footer />
           </ScrollTop>
         </Router>
