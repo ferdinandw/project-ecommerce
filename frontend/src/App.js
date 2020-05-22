@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/navbar/Navbar";
 // import Searches from './components/searchFilter/Searches'
@@ -21,7 +21,7 @@ import localforage from "localforage";
 import PrivateRoute from "./config/privateRoute";
 
 // import TesSearch from "./components/searchFilter/TesSearch";
-import Item from "./components/reducer/item";
+// import Item from "./components/reducer/item";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -75,17 +75,17 @@ class App extends Component {
               <Route path="/cart">
                 <Cart />
               </Route>
-              <Route path="/item/:id">
+              {/* <Route path="/item/:id">
                 <Detail />
-              </Route>
+              </Route> */}
               <Route path="/">
                 <Carousel />
                 <MiniCarousel />
-                <Item />
+                {/* <Item /> */}
               </Route>
             </div>
             <Switch>
-              <PrivateRoute exact path="/details/detail/:id" component={Item} />
+              {/* <PrivateRoute exact path="/details/detail/:id" component={Item} /> */}
             </Switch>
             <Footer />
           </ScrollTop>
