@@ -45,7 +45,7 @@ class Login extends Component {
     console.log(userData);
   };
   render() {
-    // const { errors } = this.state;
+    const { errors } = this.state;
     return (
       <div
         className="container mt-4"
@@ -56,17 +56,17 @@ class Login extends Component {
         //   paddingTop: "0",
         // }}
       >
-      <div className="row mt-5">
-        <div className="col-md-6">
-          <div className="">
-            {/* <div className="col-md-4" style={{ marginLeft: "50px" }}> */}
+        <div className="row mt-5">
+          <div className="col-md-6">
+            <div className="">
+              {/* <div className="col-md-4" style={{ marginLeft: "50px" }}> */}
               <img
                 src="./logo512.png"
                 alt="Gambar 1"
                 style={{ marginTop: "60px", width: "500px", height: "250px" }}
               />
-            {/* </div> */}
-            {/* <div
+              {/* </div> */}
+              {/* <div
               style={{
                 marginLeft: "380px",
                 marginBottom: "0",
@@ -75,89 +75,89 @@ class Login extends Component {
             > */}
             </div>
             <div className="col-md-6">
-            <h1 className="text-center mb-3">Login Form</h1>
-            <Formik
-              initialValues={{
-                email: "",
-                password: "",
-              }}
-              validate={(values) => {
-                let errors = {};
-                if (values.email === "") {
-                  errors.email = "Name is required";
-                }
-                if (values.password === "") {
-                  errors.password = "Born is requird";
-                }
-                return errors;
-              }}
-              onSubmit={(values, { setSubmitting }) => {
-                axios.post("https://api.juliaveronica.com/users/login", {
-                  values,
-                });
-                alert("Form is Validated!");
-                setSubmitting(false);
-              }}
-            >
-              {({ touched, errors, isSubmitting }) => (
-                <div
-                  style={{
-                    marginLeft: "380px",
-                    marginBottom: "0",
-                    paddingTop: "0",
-                  }}
-                >
-                  <Form>
-                    <div className="container">
-                      <div className="justify-content-md-center">
-                        <div class="col-md-4 ">
-                          <div
-                            class="card"
-                            style={{
-                              backgroundColor: "white",
-                              boxShadow: " 0 4px 8px 0 rgba(0,0,0,0.2)",
-                            }}
-                          >
+              <h1 className="text-center mb-3">Login Form</h1>
+              <Formik
+                initialValues={{
+                  email: "",
+                  password: "",
+                }}
+                validate={(values) => {
+                  let errors = {};
+                  if (values.email === "") {
+                    errors.email = "Name is required";
+                  }
+                  if (values.password === "") {
+                    errors.password = "password is requird";
+                  }
+                  return errors;
+                }}
+                onSubmit={(values, { setSubmitting }) => {
+                  axios.post("https://api.juliaveronica.com/users/login", {
+                    values,
+                  });
+                  alert("Form is Validated!");
+                  setSubmitting(false);
+                }}
+              >
+                {({ touched, errors, isSubmitting }) => (
+                  <div
+                    style={{
+                      marginLeft: "380px",
+                      marginBottom: "0",
+                      paddingTop: "0",
+                    }}
+                  >
+                    <Form>
+                      <div className="container">
+                        <div className="justify-content-md-center">
+                          <div class="col-md-4 ">
                             <div
-                              class="card-body "
+                              class="card"
                               style={{
-                                width: "60rem",
+                                backgroundColor: "white",
+                                boxShadow: " 0 4px 8px 0 rgba(0,0,0,0.2)",
                               }}
                             >
-                              <Field
-                                placeholder="email"
-                                type="email"
-                                name="email"
-                                className={`${errors.email && touched.email}`}
-                              />
-                              <p />
-                              <Field
-                                placeholder="password"
-                                type="password"
-                                name="password"
-                                className={`${
-                                  errors.password && touched.password
-                                }`}
-                              />
-                              <p />
-                              <button
-                                type="submit"
-                                className="btn btn-outline-primary"
+                              <div
+                                class="card-body "
+                                style={{
+                                  width: "60rem",
+                                }}
                               >
-                                Login
-                              </button>
-                              {isSubmitting}
+                                <Field
+                                  placeholder="email"
+                                  type="email"
+                                  name="email"
+                                  className={`${errors.email && touched.email}`}
+                                />
+                                <p />
+                                <Field
+                                  placeholder="password"
+                                  type="password"
+                                  name="password"
+                                  className={`${
+                                    errors.password && touched.password
+                                  }`}
+                                />
+                                <p />
+                                <button
+                                  type="submit"
+                                  className="btn btn-outline-primary"
+                                >
+                                  Login
+                                </button>
+                                {isSubmitting}
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </Form>
-                </div>
-              )}
-            </Formik>
+                    </Form>
+                  </div>
+                )}
+              </Formik>
+            </div>
           </div>
-        </div>
         </div>
       </div>
       // </div>
