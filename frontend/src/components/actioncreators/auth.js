@@ -13,7 +13,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .post(`${"http://localhost:4000/users/register"}`, userData)
+    .post(`${"https://api.juliaveronica.com/users/login"}`, userData)
     .then((res) => {
       // Save to localStorage Set token to localStorage
       const { token } = res.data;
