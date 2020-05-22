@@ -11,6 +11,8 @@ import ItemSell from "./components/ItemSelling/Sell";
 import Login from "./components/login/Login2";
 import MiniCarousel from "./components/carousel/MiniCarousel";
 import Register from "./components/register/Register";
+import Tabel from './components/form/Form';
+
 import ScrollTop from "./components/scrollTop";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/authToken";
