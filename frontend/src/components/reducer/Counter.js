@@ -22,20 +22,20 @@ class Counter extends Component {
 
   render() {
     return (
-      <div className="text-center">
-        <DecrementCounterButton
-          className="btn btn-danger btn-sm"
+      <div>
+        <button
+          className="btn btn-outline-danger"
           onClick={() => this.DecreaseItem()}
         >
           -
-        </DecrementCounterButton>
-        <Input type="text" className="mt-3" value={this.state.count}></Input>
-        <IncrementCounterButton
-          className="btn btn-success btn-sm"
+        </button>
+        <Input type="text" className="mr-2 ml-2" value={this.state.count}></Input>
+        <button
+          className="btn btn-outline-success"
           onClick={() => this.IncreamentItem()}
         >
           +
-        </IncrementCounterButton>
+        </button>
         <Button className="reset" onClick={() => this.reset()}>
           Reset
         </Button>
@@ -68,7 +68,7 @@ const Button = styled.button`
 const Input = styled.input`
   text-align: center;
   justify-content: space-between;
-  width: 5em;
+  width: 10em;
   margin-left: 3px;
   margin-right: 3px;
   font-size: 16px;

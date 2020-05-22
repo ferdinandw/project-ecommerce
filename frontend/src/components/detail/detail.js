@@ -10,7 +10,13 @@ const Detail = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://api.juliaveronica.com/item/show/${id}`).then((res) => {
+    axios.get(`https://api.juliaveronica.com/item/show/${id}`, {
+      headers: {
+        // x-access-token (backend), jwtToken(key application localstorage(chrome)).
+        "x-access-token": localStorage.getItem("jwtToken"),
+        "Content-Type": "multipart/form-data",
+      },
+    }).then((res) => {
       const data = res.data;
       setData(data);
     });
