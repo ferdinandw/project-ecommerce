@@ -6,37 +6,48 @@ import { Link } from "react-router-dom";
 import "./item.css";
 import Cartt from "./../cart/Test";
 import NumberFormat from "react-number-format";
-const Test = (props) => {
+const Test = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get("https://api.juliaveronica.com/item/show").then((res) => {
-      console.log(res.data);
-      const data = res.data;
-      setData(data);
-    });
+    axios
+      .get("https://api.juliaveronica.com/item/show/", {
+        headers: {
+          // x-access-token (backend), jwtToken(key application localstorage(chrome)).
+          "x-access-token": localStorage.getItem("jwtToken"),
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      });
+    // .then((res) => res.json())
+    // .then(json=>{
+    //   console.log(this.state.item)
+    //   this.setState({
+    //     isLoaded: true,
+    //     items: json
+    // })
   }, []);
   // const testimage = "https://i.imgur.com/tq4h23x.jpg";
+  const URL = "http://3.136.102.205/";
+  // const URL = "https://api.juliaveronica.com/"
   console.log(data);
-  
   const showData = data.map((item, index) => {
-    // headers: {
-    //   "access-token": localStorage.getItem("access-token"),
-    //   "Content-Type": "multipart/form-data",
-    // },
     return (
       <div className="col-lg-3 col-md-6 mb-4">
         <div className="card" key={index}>
-          <div>
+          <div className="box">
             <img
-              // src={`${URL}${item.imageUrl}`}
-              src={`https://api.juliaveronica.com/${item.imageUrl}`}
+              src={`${URL}${item.imageUrl}`}
+              // src={require(`https://api.juliaveronica.com/${item.imageUrl}`)}
               alt={item.name}
               className="card-img-top"
               // style={{ height: "200px", width: "100%" }}
             />
           </div>
-          <div className="card-body">
-            <h4>{item.name}</h4>
+          <div className="card-body pt-0">
+            <h5>{item.name}</h5>
             <p>Remaining Stock : {item.quantity}</p>
             <p>
               <NumberFormat
@@ -57,6 +68,7 @@ const Test = (props) => {
       </div>
     );
   });
+  // return <div>{showData}</div>;
   return (
     <div className="container pt-4 mb-4">
       <h3 className="text-center">Our Items</h3>
