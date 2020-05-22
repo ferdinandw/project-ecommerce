@@ -8,3 +8,11 @@
     border: 1px solid red;
     width: 80px;
 }
+.box {
+  width: auto;
+  height: 200px;
+}
+
+img {
+  height: 80%;
+}
